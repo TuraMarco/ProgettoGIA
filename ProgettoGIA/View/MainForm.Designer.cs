@@ -1,4 +1,4 @@
-﻿namespace ProgettoGIA.View
+﻿namespace ProgettoGIA.Presenter
 {
     partial class MainForm
     {

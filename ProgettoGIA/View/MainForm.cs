@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProgettoGIA.View
+namespace ProgettoGIA.Presenter
 {
     public partial class MainForm : Form
     {

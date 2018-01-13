@@ -26,7 +26,7 @@ namespace ProgettoGIA.Persistence
             saver.SaveAtleti(a);
         }
 
-        public ISocietàAtletiLoader getLoader()
+        public ISocietàAtletiLoader GetLoader()
         {
             return new SocietàAtletiLoader(_fileName);
         }

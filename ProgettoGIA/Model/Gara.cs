@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgettoGIA.Persistence;
+using System;
 using System.Collections.Generic;
 
 namespace ProgettoGIA.Model
@@ -33,6 +34,8 @@ namespace ProgettoGIA.Model
 
         private void New()
         {
+            _società = new List<Società>();
+            _atleti = new List<Atleta>();
             _specialitàGara = new List<SpecialitàGara>();
             OnChanged();
         }
@@ -49,22 +52,42 @@ namespace ProgettoGIA.Model
 
         public void SaveGara(IGaraPersisiter gp)
         {
-            //TODO
+            if(gp == null)
+            {
+                throw new ArgumentNullException("Gara Persisiter");
+            }
+            gp.SaveGara(_specialitàGara);
         }
 
-        public void SaveSocietàAtleti(ISocietàAtletiPersisiter ap)
+        public void SaveSocietàAtleti(ISocietàAtletiPersisiter sap)
         {
-            //TODO
+            if (sap == null)
+            {
+                throw new ArgumentNullException("Società-Atleti Persisiter");
+            }
+            sap.SaveSocietàAtleti(_società, _atleti);
         }
 
-        public void LoadAtleti(ISocietàAtletiPersisiter ap)
+        public void LoadSocietà(ISocietàAtletiPersisiter sap)
         {
-            //TODO
+            if (sap == null)
+            {
+                throw new ArgumentNullException("persister");
+            }
+            ISocietàAtletiLoader loader = sap.GetLoader();
+            _società = loader.LoadSocietà();
+            OnChanged();
         }
 
-        public void LoadSocietà(ISocietàAtletiPersisiter ap)
+        public void LoadAtleti(ISocietàAtletiPersisiter sap)
         {
-            //TODO
+            if (sap == null)
+            {
+                throw new ArgumentNullException("persister");
+            }
+            ISocietàAtletiLoader loader = sap.GetLoader();
+            _atleti = loader.LoadAtleti();
+            OnChanged();
         }
 
         #endregion
@@ -72,40 +95,105 @@ namespace ProgettoGIA.Model
 
         public void AddSpecialitàGara(Disciplina disciplina)
         {
-            //TODO
+            _specialitàGara.Add(new SpecialitàGara(disciplina));
         }
 
         public void RemoveSpecialitàGara(Disciplina disciplina)
         {
-            //TODO
+            foreach (SpecialitàGara sg in _specialitàGara)
+            {
+                if (sg.Disciplina.Equals(disciplina))
+                {
+                    _specialitàGara.Remove(sg);
+                }
+            }
+
         }
 
         public void AddAtleta(Atleta atleta)
         {
-            //TODO
+            //non sicuro che funzioni
+            if (!_atleti.Contains(atleta))
+            {
+                _atleti.Add(atleta);
+            }
         }
 
         public void AddAtleta(Atleta atleta, List<Disciplina> discipline)
         {
-            //TODO
+            foreach (Disciplina d in discipline)
+            {
+                foreach (SpecialitàGara sg in _specialitàGara)
+                {
+                    if (d.Equals(sg.Disciplina))
+                    {
+                        sg.AddAtleta(atleta);
+                    }
+                }
+            }
         }
 
         public void RemoveAtleta(Atleta atleta)
         {
-            //TODO
+            _atleti.Remove(atleta);
+
+            foreach (SpecialitàGara sg in _specialitàGara)
+            {
+                sg.RemoveAtleta(atleta);
+            }
         }
 
         public void AddSocietà(Società società)
         {
-            //TODO
+            //non sicuro che funzioni
+            if (!_società.Contains(società))
+            {
+                _società.Add(società);
+            }
         }
 
         public void RemoveSocietà(Società società)
         {
-            //TODO
+            //non sicuro che funzioni
+            if (_società.Contains(società))
+            {
+                /*foreach (Atleta a in _atleti)
+                {
+                    if (a.SocietàDiAppeartenenza.Equals(società))
+                    {
+                        throw new ArgumentException("La società ha degli iscritti.");
+                    }
+                }*/
+
+                _società.Remove(società);
+            }
         }
 
         #endregion
+
+        public void printAtleti()
+        {
+            foreach (Atleta a in _atleti)
+            {
+                Console.Write(a.Nome + a.Cognome + "\n");
+            }
+        }
+
+        public void printSocietà()
+        {
+            foreach (Società a in _società)
+            {
+                Console.Write(a.Nome + a.Sede + "\n");
+            }
+        }
+
+        public void printGara()
+        {
+            foreach (SpecialitàGara a in _specialitàGara)
+            {
+                Console.Write(a.Disciplina +"\n");
+            }
+        }
 
     }
 }
