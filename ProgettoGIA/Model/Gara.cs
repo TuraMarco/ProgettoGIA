@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgettoGIA.Model
+{
+    class Gara
+    {
+        //campi
+        private List<SpecialitàGara> _specialitàGara;
+        private List<Atleta> _atleti;
+        private List<Società> _società;
+
+        private static Gara _instance;
+
+        //evento
+        public event EventHandler Changed;
+
+        //costruttore
+        private Gara()
+        {
+            New();
+        }
+
+        public static Gara GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Gara();
+            }
+
+            return _instance;
+        }
+
+        private void New()
+        {
+            _specialitàGara = new List<SpecialitàGara>();
+            OnChanged();
+        }
+
+        private void OnChanged()
+        {
+            if (Changed != null)
+            {
+                Changed(this, EventArgs.Empty);
+            }
+        }
+
+
+    }
+}
