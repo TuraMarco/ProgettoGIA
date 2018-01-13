@@ -1,6 +1,10 @@
 ﻿namespace ProgettoGIA.Model.Calcolatori
 {
-    internal class CalcolatoreDYM : ICalcolatore
+    public class CalcolatoreDYM : ICalcolatore
     {
+        public float CalcolaPunteggio(Prestazione p)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

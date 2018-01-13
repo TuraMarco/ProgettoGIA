@@ -22,7 +22,7 @@ namespace ProgettoGIA.Model.Calcolatori
             return _calcolatori[d];
         }
 
-        public static IEnumerable<ICalcolatore> GetFlyweights()
+        public static IEnumerable<ICalcolatore> GetCalcolatori()
         {
             return _calcolatori.Values;
         }
@@ -52,7 +52,7 @@ namespace ProgettoGIA.Model.Calcolatori
                 case Disciplina.CAM:
                     return new CalcolatoreCAM();
                 default:
-                    throw new ArgumentException(d);
+                    throw new ArgumentException();
             }
         }
 
