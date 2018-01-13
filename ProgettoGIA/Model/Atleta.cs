@@ -2,7 +2,7 @@
 
 namespace ProgettoGIA.Model
 {
-    class Atleta
+    public class Atleta
     {
         //campi
         private readonly string _nome;
@@ -37,7 +37,7 @@ namespace ProgettoGIA.Model
             _scadenzaCertificato = scadenzaCertificato;
         }
 
-        public bool isCertificatoValido()
+        public bool IsCertificatoValido()
         {
             if (_scadenzaCertificato.Millisecond >= new DateTime().Millisecond)
             {

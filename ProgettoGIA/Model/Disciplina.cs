@@ -1,6 +1,6 @@
 ﻿namespace ProgettoGIA.Model
 {
-    enum Disciplina
+    public enum Disciplina
     {
         //discipline indore
         STA = 1,

@@ -53,6 +53,8 @@
     <Compile Include="Model\Sesso.cs" />
     <Compile Include="Model\Società.cs" />
     <Compile Include="Model\SpecialitàGara.cs" />
+    <Compile Include="Persistence\IGaraPersisiter.cs" />
+    <Compile Include="Persistence\ISocietàAtletiPersisiter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\MainForm.cs">
@@ -84,7 +86,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Persistence\" />
     <Folder Include="Presenter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

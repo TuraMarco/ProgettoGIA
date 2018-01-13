@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgettoGIA.Model
 {
-    class Gara
+    public class Gara
     {
         //campi
         private List<SpecialitàGara> _specialitàGara;
@@ -55,17 +52,17 @@ namespace ProgettoGIA.Model
             //TODO
         }
 
-        public void SaveSocietàAtleti(IAtletaPersisiter ap)
+        public void SaveSocietàAtleti(ISocietàAtletiPersisiter ap)
         {
             //TODO
         }
 
-        public void LoadAtleti(IAtletaPersisiter ap)
+        public void LoadAtleti(ISocietàAtletiPersisiter ap)
         {
             //TODO
         }
 
-        public void LoadSocietà(IAtletaPersisiter ap)
+        public void LoadSocietà(ISocietàAtletiPersisiter ap)
         {
             //TODO
         }

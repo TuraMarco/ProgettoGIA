@@ -1,6 +1,6 @@
 ﻿namespace ProgettoGIA.Model
 {
-    internal class Società
+    public class Società
     {
         //campi
         private readonly string _nome;

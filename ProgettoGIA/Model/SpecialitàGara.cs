@@ -2,7 +2,7 @@
 
 namespace ProgettoGIA.Model
 {
-    class SpecialitàGara
+    public class SpecialitàGara
     {
         //campi
         private readonly Disciplina _disciplina;
@@ -36,7 +36,7 @@ namespace ProgettoGIA.Model
             return null;
         }
 
-        public List<Atleti> GetAllAtleti()
+        public List<Atleta> GetAllAtleti()
         {
             //TODO
             return null;

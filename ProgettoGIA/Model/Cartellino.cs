@@ -1,6 +1,6 @@
 ﻿namespace ProgettoGIA.Model
 {
-    enum Cartellino
+    public enum Cartellino
     {
         BIANCHO = 0,
         GIALLO = 1,

@@ -1,6 +1,6 @@
 ﻿namespace ProgettoGIA.Model
 {
-    class Prestazione
+    public class Prestazione
     {
         //campi
         private readonly Disciplina _disciplina;
