@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProgettoGIA.Persistence
 {
-    interface IGaraPersisiter
+    public interface IGaraPersisiter
     {
         void SaveGara(List<SpecialitàGara> sg);
     }

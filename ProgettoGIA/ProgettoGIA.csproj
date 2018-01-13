@@ -46,6 +46,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Atleta.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreCAM.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreCNF.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreCWF.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreCWM.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreDNF.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreDYM.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreDYN.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreFactory.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreFIM.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreFIO.cs" />
+    <Compile Include="Model\Calcolatori\CalcolatoreSTA.cs" />
+    <Compile Include="Model\Calcolatori\ICalcolatore.cs" />
     <Compile Include="Model\Cartellino.cs" />
     <Compile Include="Model\Disciplina.cs" />
     <Compile Include="Model\Gara.cs" />
