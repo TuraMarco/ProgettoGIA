@@ -40,5 +40,11 @@
             _disciplina = disciplina;
             _sesso = sesso;
         }
+
+        public float CalcolaPunteggio()
+        {
+            //TODO
+            return 0;
+        }
     }
 }

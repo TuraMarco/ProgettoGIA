@@ -17,5 +17,31 @@ namespace ProgettoGIA.Model
         {
             _disciplina = disciplina;
         }
+
+        #region Metodi di Amministrazione
+
+        public void AddAtleta(Atleta atleta)
+        {
+            //TODO
+        }
+
+        public void RemoveAtleta(Atleta atleta)
+        {
+            //TODO
+        }
+
+        public Prestazione GetPrestazione(Atleta atleta)
+        {
+            //TODO
+            return null;
+        }
+
+        public List<Atleti> GetAllAtleti()
+        {
+            //TODO
+            return null;
+        }
+
+        #endregion
     }
 }

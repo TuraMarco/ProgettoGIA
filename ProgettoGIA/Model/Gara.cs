@@ -48,6 +48,67 @@ namespace ProgettoGIA.Model
             }
         }
 
+        #region Metodi di Persistenza
+
+        public void SaveGara(IGaraPersisiter gp)
+        {
+            //TODO
+        }
+
+        public void SaveSocietàAtleti(IAtletaPersisiter ap)
+        {
+            //TODO
+        }
+
+        public void LoadAtleti(IAtletaPersisiter ap)
+        {
+            //TODO
+        }
+
+        public void LoadSocietà(IAtletaPersisiter ap)
+        {
+            //TODO
+        }
+
+        #endregion
+        #region Metodi di Amministrazione
+
+        public void AddSpecialitàGara(Disciplina disciplina)
+        {
+            //TODO
+        }
+
+        public void RemoveSpecialitàGara(Disciplina disciplina)
+        {
+            //TODO
+        }
+
+        public void AddAtleta(Atleta atleta)
+        {
+            //TODO
+        }
+
+        public void AddAtleta(Atleta atleta, List<Disciplina> discipline)
+        {
+            //TODO
+        }
+
+        public void RemoveAtleta(Atleta atleta)
+        {
+            //TODO
+        }
+
+        public void AddSocietà(Società società)
+        {
+            //TODO
+        }
+
+        public void RemoveSocietà(Società società)
+        {
+            //TODO
+        }
+
+        #endregion
 
     }
 }
