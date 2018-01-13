@@ -10,8 +10,7 @@ namespace ProgettoGIA.Persistence
     public interface ISocietàAtletiPersisiter
     {
         ISocietàAtletiLoader getLoader();
-        void SaveSocietà(List<Società> s);
-        void SaveAtleti(List<Atleta> a);
+        void SaveSocietàAtleti(List<Società> s, List<Atleta> a);
     }
 
     public interface ISocietàAtletiLoader

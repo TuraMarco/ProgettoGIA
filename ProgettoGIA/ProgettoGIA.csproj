@@ -65,8 +65,10 @@
     <Compile Include="Model\Sesso.cs" />
     <Compile Include="Model\Società.cs" />
     <Compile Include="Model\SpecialitàGara.cs" />
+    <Compile Include="Persistence\GaraPersisiter.cs" />
     <Compile Include="Persistence\IGaraPersisiter.cs" />
     <Compile Include="Persistence\ISocietàAtletiPersisiter.cs" />
+    <Compile Include="Persistence\SocietàAtletiPersister.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\MainForm.cs">
