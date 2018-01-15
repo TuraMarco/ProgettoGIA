@@ -1,4 +1,5 @@
 ﻿using ProgettoGIA.Model.Calcolatori;
+using System;
 
 namespace ProgettoGIA.Model
 {
@@ -45,8 +46,12 @@ namespace ProgettoGIA.Model
 
         public float CalcolaPunteggio()
         {
+            /*
             ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
             return c.CalcolaPunteggio(this);
+            */
+            Random r = new Random();
+            return Convert.ToSingle(r.NextDouble());
         }
     }
 }

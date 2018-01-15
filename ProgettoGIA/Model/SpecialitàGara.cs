@@ -28,11 +28,11 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile.Add(atleta, new Prestazione(_disciplina, Sesso.MASCHIO));
+                    _prestazioneMaschile.Add(atleta, null);
                 }
                 else
                 {
-                    _prestazioneFemminile.Add(atleta, new Prestazione(_disciplina, Sesso.FEMMINA));
+                    _prestazioneFemminile.Add(atleta, null);
                 }
             }
         }
@@ -52,6 +52,26 @@ namespace ProgettoGIA.Model
             }
         }
 
+        public void SetPrestazione(Atleta atleta, Prestazione prestazione)
+        {
+            prestazione.CalcolaPunteggio();
+            if (GetPrestazione(atleta) == null)
+            {
+                if (atleta.Sesso.Equals(Sesso.MASCHIO))
+                {
+                    _prestazioneMaschile[atleta] = prestazione;
+                }
+                else
+                {
+                    _prestazioneFemminile[atleta] = prestazione;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("L'atleta ha gia una prestazione per questa disciplina.\n");
+            }
+        }
+
         public Prestazione GetPrestazione(Atleta atleta)
         {
             if (ExistAtleta(atleta))
@@ -65,7 +85,7 @@ namespace ProgettoGIA.Model
                             return pm.Value;
                         }
                     }
-                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara");
+                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
                 }
                 else
                 {
@@ -76,12 +96,12 @@ namespace ProgettoGIA.Model
                             return pf.Value;
                         }
                     }
-                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara");
+                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
                 }
             }
             else
             {
-                throw new ArgumentException("L'atleta non è iscritto alla specialità di gara");
+                throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
             }
         }
 

@@ -47,8 +47,25 @@ namespace ProgettoGIA
 
 
 
+            DemoCreate(g, s, a1, a2, a3);
+            DemoAmministration(g, s, a1, a2, a3);
+            DemoRemove(g, s, a1, a2, a3);
+        }
+
+        private static void DemoAmministration(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void DemoCreate(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
+        {
             g.AddSpecialitàGara(Disciplina.STA);
             Console.Write("Creata disciplina STA\n");
+            g.printGara();
+            Console.Write("\n");
+
+            g.AddSpecialitàGara(Disciplina.CAM);
+            Console.Write("Creata disciplina CAM\n");
             g.printGara();
             Console.Write("\n");
 
@@ -71,7 +88,10 @@ namespace ProgettoGIA
             Console.Write("Creata a3\n");
             g.printAtleti();
             Console.Write("\n");
+        }
 
+        private static void DemoRemove(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
+        {
             g.RemoveAtleta(a3);
             Console.Write("Rimosso a3\n");
             g.printAtleti();
@@ -98,4 +118,3 @@ namespace ProgettoGIA
             Console.Write("\n");
         }
     }
-}

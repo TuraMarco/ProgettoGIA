@@ -147,11 +147,11 @@ namespace ProgettoGIA.Model
         {
             if (ExistAtleta(atleta))
             {
-                throw new ArgumentException("Atleta gia esisitenete, non puoi aggiungerlo");
+                throw new ArgumentException("Atleta gia esisitenete, non puoi aggiungerlo.\n");
             }
             else
             {
-                Atleti.Add(atleta);
+                _atleti.Add(atleta);
             }
             OnChanged();
         }
@@ -160,11 +160,11 @@ namespace ProgettoGIA.Model
         {
             if (ExistSocietà(società))
             {
-                throw new ArgumentException("Società gia esisitenete, non puoi aggiungerla");
+                throw new ArgumentException("Società gia esisitenete, non puoi aggiungerla.\n");
             }
             else
             {
-                Società.Add(società);
+                _società.Add(società);
             }
             OnChanged();
         }
@@ -173,24 +173,35 @@ namespace ProgettoGIA.Model
         {
             if (SocietàPossiedeAtleti(società))
             {
-                throw new ArgumentException("Società associata ad atleti, non puoi cancellarla");
+                throw new ArgumentException("Società associata ad atleti, non puoi cancellarla.\n");
             }
             else
             {
-                Società.Remove(società);
+                _società.Remove(società);
             }
             OnChanged();
         }
 
         public void RemoveAtleta(Atleta atleta)
         {
-            Atleti.Remove(atleta);
+            _atleti.Remove(atleta);
 
             foreach (SpecialitàGara sg in SpecialitàGara)
             {
                 sg.RemoveAtleta(atleta);
             }
             OnChanged();
+        }
+
+        public void AddPrestazioneToAtleta(Atleta atleta, Disciplina disciplina, Prestazione prestazione)
+        {
+            foreach (SpecialitàGara sg in _specialitàGara)
+            {
+                if (sg.Disciplina.Equals(disciplina))
+                {
+                    sg.SetPrestazione(atleta, prestazione);
+                }
+            }
         }
 
         #endregion
@@ -258,9 +269,17 @@ namespace ProgettoGIA.Model
 
         public void printGara()
         {
-            foreach (SpecialitàGara a in SpecialitàGara)
+            foreach (SpecialitàGara sg in SpecialitàGara)
             {
-                Console.Write("DISCIPLINA :" + a.Disciplina + "\n");
+                Console.Write("DISCIPLINA :" + sg.Disciplina + "\n");
+
+                List<Atleta> aList = sg.GetAllAtleti();
+                foreach (Atleta a in aList)
+                {
+                    Prestazione p = sg.GetPrestazione(a);
+                    Console.Write("\tATLETA :" + a.Nome + " " + a.Cognome + " - " + a.DataDiNascita +"\n");
+                    Console.Write("\t\tPRESTAZIONE: " + p.Punteggio);
+                }
             }
         }
 
