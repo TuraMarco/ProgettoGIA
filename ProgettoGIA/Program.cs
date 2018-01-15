@@ -56,14 +56,47 @@ namespace ProgettoGIA
         {
             List<Atleta> aList = g.Atleti;
             List<Disciplina> dList = g.Discipline;
-            Prestazione p = new Prestazione(dList[0], aList[0].Sesso);
-            p.IsCompletata = true;
+            Prestazione p1 = new Prestazione(dList[0], aList[0].Sesso);
+            Prestazione p2 = new Prestazione(dList[0], aList[0].Sesso);
+            Prestazione p3 = new Prestazione(dList[0], aList[0].Sesso);
+            Prestazione p4 = new Prestazione(dList[0], aList[0].Sesso);
+            Prestazione p5 = new Prestazione(dList[0], aList[0].Sesso);
+            Prestazione p6 = new Prestazione(dList[0], aList[0].Sesso);
+
+            p1.IsCompletata = true;
+            p2.IsCompletata = true;
+            p3.IsCompletata = true;
+            p4.IsCompletata = true;
+            p5.IsCompletata = true;
+            p6.IsCompletata = true;
 
             g.AddAtletaToGara(aList[0], dList);
-            g.AddPrestazioneToAtleta(aList[0], dList[0], p);
+            g.AddPrestazioneToAtleta(aList[0], dList[0], p1);
             Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n",dList[0] ,aList[0].Nome, aList[0].Cognome);
+            g.AddPrestazioneToAtleta(aList[0], dList[1], p2);
+            Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n", dList[1], aList[0].Nome, aList[0].Cognome);
             g.printGara();
 
+            Console.Write("\n----------------------------\n");
+
+
+            g.AddAtletaToGara(aList[1], dList);
+            g.AddPrestazioneToAtleta(aList[1], dList[0], p3);
+            Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n", dList[0], aList[0].Nome, aList[1].Cognome);
+            g.AddPrestazioneToAtleta(aList[1], dList[1], p4);
+            Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n", dList[1], aList[0].Nome, aList[1].Cognome);
+            g.printGara();
+
+            Console.Write("\n----------------------------\n");
+
+            g.AddAtletaToGara(aList[2], dList);
+            g.AddPrestazioneToAtleta(aList[2], dList[0], p5);
+            Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n", dList[0], aList[2].Nome, aList[2].Cognome);
+            g.AddPrestazioneToAtleta(aList[2], dList[1], p6);
+            Console.Write("Aggiunta prestazione del tipo {0} all'atleta {1} {2}.\n", dList[1], aList[2].Nome, aList[2].Cognome);
+            g.printGara();
+
+            Console.Write("\n----------------------------\n");
         }
 
         private static void DemoCreate(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
