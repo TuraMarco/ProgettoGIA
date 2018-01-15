@@ -15,6 +15,20 @@ namespace ProgettoGIA.Model
 
         //property
         public List<SpecialitàGara> SpecialitàGara => _specialitàGara;
+        public List<Atleta> Atleti => _atleti;
+        public List<Società> Società => _società;
+
+        public List<Disciplina> Discipline {
+            get
+            {
+                List<Disciplina> ld = new List<Disciplina>();
+                foreach (SpecialitàGara sg in _specialitàGara)
+                {
+                    ld.Add(sg.Disciplina);
+                }
+                return ld;
+            }
+        }
 
         //evento
         public event EventHandler Changed;
@@ -151,7 +165,7 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _atleti.Add(atleta);
+                Atleti.Add(atleta);
             }
             OnChanged();
         }
@@ -164,7 +178,7 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _società.Add(società);
+                Società.Add(società);
             }
             OnChanged();
         }
@@ -177,14 +191,14 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _società.Remove(società);
+                Società.Remove(società);
             }
             OnChanged();
         }
 
         public void RemoveAtleta(Atleta atleta)
         {
-            _atleti.Remove(atleta);
+            Atleti.Remove(atleta);
 
             foreach (SpecialitàGara sg in SpecialitàGara)
             {
@@ -269,7 +283,7 @@ namespace ProgettoGIA.Model
 
         public void printGara()
         {
-            foreach (SpecialitàGara sg in SpecialitàGara)
+            foreach (SpecialitàGara sg in _specialitàGara)
             {
                 Console.Write("DISCIPLINA :" + sg.Disciplina + "\n");
 
@@ -278,7 +292,7 @@ namespace ProgettoGIA.Model
                 {
                     Prestazione p = sg.GetPrestazione(a);
                     Console.Write("\tATLETA :" + a.Nome + " " + a.Cognome + " - " + a.DataDiNascita +"\n");
-                    Console.Write("\t\tPRESTAZIONE: " + p.Punteggio);
+                    Console.Write("\t\tPRESTAZIONE: " + p.Punteggio + "\n");
                 }
             }
         }

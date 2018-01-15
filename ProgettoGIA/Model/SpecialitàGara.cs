@@ -18,6 +18,8 @@ namespace ProgettoGIA.Model
         public SpecialitàGara(Disciplina disciplina)
         {
             _disciplina = disciplina;
+            _prestazioneMaschile = new Dictionary<Atleta, Prestazione>();
+            _prestazioneFemminile = new Dictionary<Atleta, Prestazione>();
         }
 
         #region Metodi di Amministrazione
@@ -28,11 +30,11 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile.Add(atleta, null);
+                    _prestazioneMaschile.Add(atleta, new Prestazione(_disciplina, Sesso.MASCHIO));
                 }
                 else
                 {
-                    _prestazioneFemminile.Add(atleta, null);
+                    _prestazioneFemminile.Add(atleta, new Prestazione(_disciplina, Sesso.FEMMINA));
                 }
             }
         }
@@ -55,7 +57,7 @@ namespace ProgettoGIA.Model
         public void SetPrestazione(Atleta atleta, Prestazione prestazione)
         {
             prestazione.CalcolaPunteggio();
-            if (GetPrestazione(atleta) == null)
+            if (GetPrestazione(atleta).Punteggio == 0)
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {

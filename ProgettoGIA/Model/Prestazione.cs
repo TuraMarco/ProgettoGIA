@@ -20,6 +20,7 @@ namespace ProgettoGIA.Model
         private Cartellino _cartellino;
         private int _penalità;
         private float _punteggio;
+        private bool _PrestazioneCompletata;
 
         //property
         public Disciplina Disciplina => _disciplina;
@@ -35,7 +36,8 @@ namespace ProgettoGIA.Model
         public bool Atrezzatura_zavorra { get => _atrezzatura_zavorra; set => _atrezzatura_zavorra = value; }
         public Cartellino Cartellino { get => _cartellino; set => _cartellino = value; }
         public int Penalità { get => _penalità; set => _penalità = value; }
-        public float Punteggio { get => _punteggio; set => _punteggio = value; }
+        public float Punteggio => _punteggio;
+        public bool IsCompletata { get => _PrestazioneCompletata; set => _PrestazioneCompletata = value; }
 
         //costruttore
         public Prestazione(Disciplina disciplina, Sesso sesso)
@@ -44,14 +46,18 @@ namespace ProgettoGIA.Model
             _sesso = sesso;
         }
 
-        public float CalcolaPunteggio()
+        public void CalcolaPunteggio()
         {
             /*
             ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
             return c.CalcolaPunteggio(this);
             */
-            Random r = new Random();
-            return Convert.ToSingle(r.NextDouble());
+
+            if (this.IsCompletata)
+            {
+                Random r = new Random();
+                _punteggio = Convert.ToSingle(r.NextDouble());
+            } 
         }
     }
 }
