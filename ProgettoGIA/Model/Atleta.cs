@@ -13,6 +13,7 @@ namespace ProgettoGIA.Model
         private readonly bool _istruttore;
         private readonly Società _società;
         private readonly DateTime _scadenzaCertificato;
+        private readonly Guid _guid;
 
         //property
         public string Nome => _nome;
@@ -23,9 +24,10 @@ namespace ProgettoGIA.Model
         public bool Istruttore => _istruttore;
         public Società SocietàDiAppeartenenza => _società;
         public DateTime ScadenzaCertificato => _scadenzaCertificato;
+        public Guid Guid => _guid;
 
         //costruttore
-        public Atleta(string nome, string cognome, string codiceFiscale, Sesso sesso, DateTime dataDiNascita, bool istruttore, Società società, DateTime scadenzaCertificato)
+        public Atleta(string nome, string cognome, string codiceFiscale, Sesso sesso, DateTime dataDiNascita, bool istruttore, Società società, DateTime scadenzaCertificato, Guid guid)
         {
             _nome = nome;
             _cognome = cognome;
@@ -35,6 +37,15 @@ namespace ProgettoGIA.Model
             _istruttore = istruttore;
             _società = società;
             _scadenzaCertificato = scadenzaCertificato;
+
+            if (Guid == Guid.Empty)
+            {
+                _guid = Guid.NewGuid();
+            }
+            else
+            {
+                _guid = guid;
+            }
         }
 
         public bool IsCertificatoValido()

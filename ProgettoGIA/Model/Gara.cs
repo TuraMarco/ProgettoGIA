@@ -42,6 +42,7 @@ namespace ProgettoGIA.Model
 
         private void OnChanged()
         {
+            Console.Write("Chiamato OnChange!!!\n");
             if (Changed != null)
             {
                 Changed(this, EventArgs.Empty);
@@ -96,30 +97,24 @@ namespace ProgettoGIA.Model
         public void AddSpecialitàGara(Disciplina disciplina)
         {
             _specialitàGara.Add(new SpecialitàGara(disciplina));
+            OnChanged();
         }
 
         public void RemoveSpecialitàGara(Disciplina disciplina)
         {
-            foreach (SpecialitàGara sg in _specialitàGara)
+            for (int i = 0 ; i<_specialitàGara.Count ; i++)
             {
+                SpecialitàGara sg = _specialitàGara[i];
+
                 if (sg.Disciplina.Equals(disciplina))
                 {
                     _specialitàGara.Remove(sg);
                 }
             }
-
+            OnChanged();
         }
 
-        public void AddAtleta(Atleta atleta)
-        {
-            //non sicuro che funzioni
-            if (!_atleti.Contains(atleta))
-            {
-                _atleti.Add(atleta);
-            }
-        }
-
-        public void AddAtleta(Atleta atleta, List<Disciplina> discipline)
+        public void AddAtletaToGara(Atleta atleta, List<Disciplina> discipline)
         {
             foreach (Disciplina d in discipline)
             {
@@ -131,6 +126,57 @@ namespace ProgettoGIA.Model
                     }
                 }
             }
+            OnChanged();
+        }
+
+        
+
+        public void RemoveAtletaToGara(Atleta atleta)
+        {
+            foreach (SpecialitàGara sg in _specialitàGara)
+            {
+                sg.RemoveAtleta(atleta);
+            }
+            OnChanged();
+        }
+
+        public void AddAtleta(Atleta atleta)
+        {
+            if (ExistAtleta(atleta))
+            {
+                throw new ArgumentException("Atleta gia esisitenete, non puoi aggiungerlo");
+            }
+            else
+            {
+                _atleti.Add(atleta);
+            }
+            OnChanged();
+        }
+
+        public void AddSocietà(Società società)
+        {
+            if (ExistSocietà(società))
+            {
+                throw new ArgumentException("Società gia esisitenete, non puoi aggiungerla");
+            }
+            else
+            {
+                _società.Add(società);
+            }
+            OnChanged();
+        }
+
+        public void RemoveSocietà(Società società)
+        {
+            if (SocietàPossiedeAtleti(società))
+            {
+                throw new ArgumentException("Società associata ad atleti, non puoi cancellarla");
+            }
+            else
+            {
+                _società.Remove(società);
+            }
+            OnChanged();
         }
 
         public void RemoveAtleta(Atleta atleta)
@@ -141,41 +187,61 @@ namespace ProgettoGIA.Model
             {
                 sg.RemoveAtleta(atleta);
             }
-        }
-
-        public void AddSocietà(Società società)
-        {
-            //non sicuro che funzioni
-            if (!_società.Contains(società))
-            {
-                _società.Add(società);
-            }
-        }
-
-        public void RemoveSocietà(Società società)
-        {
-            //non sicuro che funzioni
-            if (_società.Contains(società))
-            {
-                /*foreach (Atleta a in _atleti)
-                {
-                    if (a.SocietàDiAppeartenenza.Equals(società))
-                    {
-                        throw new ArgumentException("La società ha degli iscritti.");
-                    }
-                }*/
-
-                _società.Remove(società);
-            }
+            OnChanged();
         }
 
         #endregion
+        #region Metodi di Utlità
+
+        public bool ExistAtleta(Atleta atleta)
+        {
+            bool exist = false;
+            foreach (Atleta a in _atleti)
+            {
+                if (a.Guid.Equals(atleta.Guid))
+                {
+                    exist = true;
+                }
+            }
+
+            return exist;
+        }
+
+
+        public bool ExistSocietà(Società società)
+        {
+            bool exist = false;
+            foreach (Società a in _società)
+            {
+                if (a.Guid.Equals(società.Guid))
+                {
+                    exist = true;
+                }
+            }
+
+            return exist;
+        }
+
+        public bool SocietàPossiedeAtleti(Società societa)
+        {
+            bool possiede = false;
+
+            foreach (Atleta a in _atleti)
+            {
+                if (a.SocietàDiAppeartenenza.Guid.Equals(societa.Guid))
+                {
+                    possiede = true;
+                }
+            }
+
+            return possiede;
+        }
 
         public void printAtleti()
         {
             foreach (Atleta a in _atleti)
             {
-                Console.Write(a.Nome + a.Cognome + "\n");
+                Console.Write("ATLETA: " + a.Nome + " " + a.Cognome + "\n");
             }
         }
 
@@ -183,7 +249,7 @@ namespace ProgettoGIA.Model
         {
             foreach (Società a in _società)
             {
-                Console.Write(a.Nome + a.Sede + "\n");
+                Console.Write("SOCIETA' :" + a.Nome + " " + a.Sede + "\n");
             }
         }
 
@@ -191,9 +257,10 @@ namespace ProgettoGIA.Model
         {
             foreach (SpecialitàGara a in _specialitàGara)
             {
-                Console.Write(a.Disciplina +"\n");
+                Console.Write("DISCIPLINA :" + a.Disciplina + "\n");
             }
         }
 
+        #endregion
     }
 }
