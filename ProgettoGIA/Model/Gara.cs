@@ -13,6 +13,9 @@ namespace ProgettoGIA.Model
 
         private static Gara _instance;
 
+        //property
+        public List<SpecialitàGara> SpecialitàGara => _specialitàGara;
+
         //evento
         public event EventHandler Changed;
 
@@ -57,7 +60,7 @@ namespace ProgettoGIA.Model
             {
                 throw new ArgumentNullException("Gara Persisiter");
             }
-            gp.SaveGara(_specialitàGara);
+            gp.SaveGara(SpecialitàGara);
         }
 
         public void SaveSocietàAtleti(ISocietàAtletiPersisiter sap)
@@ -66,7 +69,7 @@ namespace ProgettoGIA.Model
             {
                 throw new ArgumentNullException("Società-Atleti Persisiter");
             }
-            sap.SaveSocietàAtleti(_società, _atleti);
+            sap.SaveSocietàAtleti(Società, Atleti);
         }
 
         public void LoadSocietà(ISocietàAtletiPersisiter sap)
@@ -96,19 +99,19 @@ namespace ProgettoGIA.Model
 
         public void AddSpecialitàGara(Disciplina disciplina)
         {
-            _specialitàGara.Add(new SpecialitàGara(disciplina));
+            SpecialitàGara.Add(new SpecialitàGara(disciplina));
             OnChanged();
         }
 
         public void RemoveSpecialitàGara(Disciplina disciplina)
         {
-            for (int i = 0 ; i<_specialitàGara.Count ; i++)
+            for (int i = 0 ; i<SpecialitàGara.Count ; i++)
             {
-                SpecialitàGara sg = _specialitàGara[i];
+                SpecialitàGara sg = SpecialitàGara[i];
 
                 if (sg.Disciplina.Equals(disciplina))
                 {
-                    _specialitàGara.Remove(sg);
+                    SpecialitàGara.Remove(sg);
                 }
             }
             OnChanged();
@@ -118,7 +121,7 @@ namespace ProgettoGIA.Model
         {
             foreach (Disciplina d in discipline)
             {
-                foreach (SpecialitàGara sg in _specialitàGara)
+                foreach (SpecialitàGara sg in SpecialitàGara)
                 {
                     if (d.Equals(sg.Disciplina))
                     {
@@ -133,7 +136,7 @@ namespace ProgettoGIA.Model
 
         public void RemoveAtletaToGara(Atleta atleta)
         {
-            foreach (SpecialitàGara sg in _specialitàGara)
+            foreach (SpecialitàGara sg in SpecialitàGara)
             {
                 sg.RemoveAtleta(atleta);
             }
@@ -148,7 +151,7 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _atleti.Add(atleta);
+                Atleti.Add(atleta);
             }
             OnChanged();
         }
@@ -161,7 +164,7 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _società.Add(società);
+                Società.Add(società);
             }
             OnChanged();
         }
@@ -174,16 +177,16 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                _società.Remove(società);
+                Società.Remove(società);
             }
             OnChanged();
         }
 
         public void RemoveAtleta(Atleta atleta)
         {
-            _atleti.Remove(atleta);
+            Atleti.Remove(atleta);
 
-            foreach (SpecialitàGara sg in _specialitàGara)
+            foreach (SpecialitàGara sg in SpecialitàGara)
             {
                 sg.RemoveAtleta(atleta);
             }
@@ -196,7 +199,7 @@ namespace ProgettoGIA.Model
         public bool ExistAtleta(Atleta atleta)
         {
             bool exist = false;
-            foreach (Atleta a in _atleti)
+            foreach (Atleta a in Atleti)
             {
                 if (a.Guid.Equals(atleta.Guid))
                 {
@@ -211,7 +214,7 @@ namespace ProgettoGIA.Model
         public bool ExistSocietà(Società società)
         {
             bool exist = false;
-            foreach (Società a in _società)
+            foreach (Società a in Società)
             {
                 if (a.Guid.Equals(società.Guid))
                 {
@@ -226,7 +229,7 @@ namespace ProgettoGIA.Model
         {
             bool possiede = false;
 
-            foreach (Atleta a in _atleti)
+            foreach (Atleta a in Atleti)
             {
                 if (a.SocietàDiAppeartenenza.Guid.Equals(societa.Guid))
                 {
@@ -239,7 +242,7 @@ namespace ProgettoGIA.Model
 
         public void printAtleti()
         {
-            foreach (Atleta a in _atleti)
+            foreach (Atleta a in Atleti)
             {
                 Console.Write("ATLETA: " + a.Nome + " " + a.Cognome + "\n");
             }
@@ -247,7 +250,7 @@ namespace ProgettoGIA.Model
 
         public void printSocietà()
         {
-            foreach (Società a in _società)
+            foreach (Società a in Società)
             {
                 Console.Write("SOCIETA' :" + a.Nome + " " + a.Sede + "\n");
             }
@@ -255,7 +258,7 @@ namespace ProgettoGIA.Model
 
         public void printGara()
         {
-            foreach (SpecialitàGara a in _specialitàGara)
+            foreach (SpecialitàGara a in SpecialitàGara)
             {
                 Console.Write("DISCIPLINA :" + a.Disciplina + "\n");
             }

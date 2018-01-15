@@ -1,4 +1,6 @@
-﻿namespace ProgettoGIA.Model
+﻿using ProgettoGIA.Model.Calcolatori;
+
+namespace ProgettoGIA.Model
 {
     public class Prestazione
     {
@@ -43,8 +45,8 @@
 
         public float CalcolaPunteggio()
         {
-            //TODO
-            return 0;
+            ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
+            return c.CalcolaPunteggio(this);
         }
     }
 }
