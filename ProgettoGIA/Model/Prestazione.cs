@@ -7,7 +7,6 @@ namespace ProgettoGIA.Model
     {
         //campi
         private readonly Disciplina _disciplina;
-        private  readonly Sesso _sesso;
         private float _misurazione;
         private int _valutazioneTecnica_assetto;
         private int _valutazioneTecnica_virata;
@@ -24,7 +23,6 @@ namespace ProgettoGIA.Model
 
         //property
         public Disciplina Disciplina => _disciplina;
-        public Sesso Sesso => _sesso;
         public float Misurazione { get => _misurazione; set => _misurazione = value; }
         public int ValutazioneTecnica_assetto { get => _valutazioneTecnica_assetto; set => _valutazioneTecnica_assetto = value; }
         public int ValutazioneTecnica_virata { get => _valutazioneTecnica_virata; set => _valutazioneTecnica_virata = value; }
@@ -40,24 +38,27 @@ namespace ProgettoGIA.Model
         public bool IsCompletata { get => _PrestazioneCompletata; set => _PrestazioneCompletata = value; }
 
         //costruttore
-        public Prestazione(Disciplina disciplina, Sesso sesso)
+        public Prestazione(Disciplina disciplina)
         {
             _disciplina = disciplina;
-            _sesso = sesso;
         }
 
         public void CalcolaPunteggio()
         {
-            /*
-            ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
-            return c.CalcolaPunteggio(this);
-            */
-
             if (this.IsCompletata)
             {
                 Random r = new Random();
                 _punteggio = Convert.ToSingle(r.NextDouble());
-            } 
+
+                /*
+                ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
+                return c.CalcolaPunteggio(this);
+                */
+            }
+            else
+            {
+                throw new InvalidOperationException("Errore: La prestazione non è stata ancora completata, non potrà essere calcolato il punteggio.\n");
+            }
         }
     }
 }

@@ -19,19 +19,12 @@ namespace ProgettoGIA
         [STAThread]
         static void Main()
         {
+            //DEBUG
             Gara g = Gara.GetInstance();
-            try
-            {
-                Demo(g);
-
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.StackTrace);
-            }
-
+            Demo(g);
 
             /*
+            //APPLICAZIONE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
@@ -45,23 +38,59 @@ namespace ProgettoGIA
             Atleta a2 = new Atleta("Anna", "Rossi", "TRUMRC91D04G916U", Sesso.FEMMINA, new DateTime(1994, 4, 4), false, s, new DateTime(2019, 1, 1), Guid.Empty);
             Atleta a3 = new Atleta("Jon", "Doo", "TRUMRC91D04G916U", Sesso.MASCHIO, new DateTime(2014, 4, 4), false, s, new DateTime(2017, 1, 1), Guid.Empty);
 
+            try
+            {
+                DemoCreate(g, s, a1, a2, a3);
+                DemoAmministration(g);
+                DemoRemove(g, s, a1, a2, a3);
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.StackTrace);
+            }
+        }
 
+        private static void DemoCreate(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
+        {
+            g.AddSpecialitàGara(Disciplina.STA);
+            Console.Write("Creata disciplina STA\n");
+            Console.Write("\n");
 
-            DemoCreate(g, s, a1, a2, a3);
-            DemoAmministration(g);
-            //DemoRemove(g, s, a1, a2, a3);
+            g.AddSpecialitàGara(Disciplina.CAM);
+            Console.Write("Creata disciplina CAM\n");
+            Console.Write("\n");
+
+            g.AddSocietà(s);
+            Console.Write("Creata società1\n");
+            g.printSocietà();
+            Console.Write("\n");
+
+            g.AddAtleta(a1);
+            Console.Write("Creata a1\n");
+            g.printAtleti();
+            Console.Write("\n");
+
+            g.AddAtleta(a2);
+            Console.Write("Creata a2\n");
+            g.printAtleti();
+            Console.Write("\n");
+
+            g.AddAtleta(a3);
+            Console.Write("Creata a3\n");
+            g.printAtleti();
+            Console.Write("\n");
         }
 
         private static void DemoAmministration(Gara g)
         {
             List<Atleta> aList = g.Atleti;
-            List<Disciplina> dList = g.Discipline;
-            Prestazione p1 = new Prestazione(dList[0], aList[0].Sesso);
-            Prestazione p2 = new Prestazione(dList[0], aList[0].Sesso);
-            Prestazione p3 = new Prestazione(dList[0], aList[0].Sesso);
-            Prestazione p4 = new Prestazione(dList[0], aList[0].Sesso);
-            Prestazione p5 = new Prestazione(dList[0], aList[0].Sesso);
-            Prestazione p6 = new Prestazione(dList[0], aList[0].Sesso);
+            List<Disciplina> dList = g.DisciplineInGara;
+            Prestazione p1 = new Prestazione(dList[0]);
+            Prestazione p2 = new Prestazione(dList[0]);
+            Prestazione p3 = new Prestazione(dList[0]);
+            Prestazione p4 = new Prestazione(dList[0]);
+            Prestazione p5 = new Prestazione(dList[0]);
+            Prestazione p6 = new Prestazione(dList[0]);
 
             p1.IsCompletata = true;
             p2.IsCompletata = true;
@@ -99,37 +128,6 @@ namespace ProgettoGIA
             Console.Write("\n----------------------------\n");
         }
 
-        private static void DemoCreate(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
-        {
-            g.AddSpecialitàGara(Disciplina.STA);
-            Console.Write("Creata disciplina STA\n");
-            Console.Write("\n");
-
-            g.AddSpecialitàGara(Disciplina.CAM);
-            Console.Write("Creata disciplina CAM\n");
-            Console.Write("\n");
-
-            g.AddSocietà(s);
-            Console.Write("Creata società1\n");
-            g.printSocietà();
-            Console.Write("\n");
-
-            g.AddAtleta(a1);
-            Console.Write("Creata a1\n");
-            g.printAtleti();
-            Console.Write("\n");
-
-            g.AddAtleta(a2);
-            Console.Write("Creata a2\n");
-            g.printAtleti();
-            Console.Write("\n");
-
-            g.AddAtleta(a3);
-            Console.Write("Creata a3\n");
-            g.printAtleti();
-            Console.Write("\n");
-        }
-
         private static void DemoRemove(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
         {
             g.RemoveAtleta(a3);
@@ -153,7 +151,12 @@ namespace ProgettoGIA
             Console.Write("\n");
 
             g.RemoveSpecialitàGara(Disciplina.STA);
-            Console.Write("Rimossa Disciplina\n");
+            Console.Write("Rimossa Disciplina STA\n");
+            g.printGara();
+            Console.Write("\n");
+
+            g.RemoveSpecialitàGara(Disciplina.CAM);
+            Console.Write("Rimossa Disciplina CAM\n");
             g.printGara();
             Console.Write("\n");
         }

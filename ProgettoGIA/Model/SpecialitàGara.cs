@@ -26,22 +26,22 @@ namespace ProgettoGIA.Model
 
         public void AddAtleta(Atleta atleta)
         {
-            if (!ExistAtleta(atleta))
+            if (!ExistAtletaInSG(atleta))
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile.Add(atleta, new Prestazione(_disciplina, Sesso.MASCHIO));
+                    _prestazioneMaschile.Add(atleta, new Prestazione(_disciplina));
                 }
                 else
                 {
-                    _prestazioneFemminile.Add(atleta, new Prestazione(_disciplina, Sesso.FEMMINA));
+                    _prestazioneFemminile.Add(atleta, new Prestazione(_disciplina));
                 }
             }
         }
 
         public void RemoveAtleta(Atleta atleta)
         {
-            if (ExistAtleta(atleta))
+            if (ExistAtletaInSG(atleta))
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
@@ -70,13 +70,13 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                throw new ArgumentException("L'atleta ha gia una prestazione per questa disciplina.\n");
+                throw new InvalidOperationException("Errore: L'atleta ha gia associata una prestazione alla disciplina" + _disciplina + ".\n");
             }
         }
 
         public Prestazione GetPrestazione(Atleta atleta)
         {
-            if (ExistAtleta(atleta))
+            if (ExistAtletaInSG(atleta))
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
@@ -87,7 +87,6 @@ namespace ProgettoGIA.Model
                             return pm.Value;
                         }
                     }
-                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
                 }
                 else
                 {
@@ -98,13 +97,11 @@ namespace ProgettoGIA.Model
                             return pf.Value;
                         }
                     }
-                    throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
                 }
             }
-            else
-            {
-                throw new ArgumentException("L'atleta non è iscritto alla specialità di gara.\n");
-            }
+
+            throw new InvalidOperationException("Errore: L'atleta non partecipa alla disciplina" + _disciplina + ".\n");
+            
         }
 
         public List<Atleta> GetAllAtleti()
@@ -114,7 +111,7 @@ namespace ProgettoGIA.Model
 
         #endregion
         #region Matodi di Utilità
-        public bool ExistAtleta(Atleta atleta)
+        public bool ExistAtletaInSG(Atleta atleta)
         {
             bool exist = false;
 

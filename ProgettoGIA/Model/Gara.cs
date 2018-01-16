@@ -18,7 +18,8 @@ namespace ProgettoGIA.Model
         public List<Atleta> Atleti => _atleti;
         public List<Società> Società => _società;
 
-        public List<Disciplina> Discipline {
+        public List<Disciplina> DisciplineInGara
+        {
             get
             {
                 List<Disciplina> ld = new List<Disciplina>();
@@ -32,6 +33,17 @@ namespace ProgettoGIA.Model
 
         //evento
         public event EventHandler Changed;
+
+        private void OnChanged()
+        {
+            Console.Write("Change!!!\n");
+            if (Changed != null)
+            {
+                Changed(this, EventArgs.Empty);
+            }
+        }
+
+        #region Metodi Singleton
 
         //costruttore
         private Gara()
@@ -57,22 +69,14 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
-        private void OnChanged()
-        {
-            Console.Write("Chiamato OnChange!!!\n");
-            if (Changed != null)
-            {
-                Changed(this, EventArgs.Empty);
-            }
-        }
-
+        #endregion
         #region Metodi di Persistenza
 
         public void SaveGara(IGaraPersisiter gp)
         {
             if(gp == null)
             {
-                throw new ArgumentNullException("Gara Persisiter");
+                throw new ArgumentNullException("Errore: Durante la chiamata di SaveGara(IGaraPersisiter gp); l'argomento IGaraPersisiter è null\n");
             }
             gp.SaveGara(SpecialitàGara);
         }
@@ -81,7 +85,7 @@ namespace ProgettoGIA.Model
         {
             if (sap == null)
             {
-                throw new ArgumentNullException("Società-Atleti Persisiter");
+                throw new ArgumentNullException("Errore: Durante la chiamata di SaveSocietàAtleti(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
             }
             sap.SaveSocietàAtleti(Società, Atleti);
         }
@@ -90,7 +94,7 @@ namespace ProgettoGIA.Model
         {
             if (sap == null)
             {
-                throw new ArgumentNullException("persister");
+                throw new ArgumentNullException("Errore: Durante la chiamata di LoadSocietà(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
             }
             ISocietàAtletiLoader loader = sap.GetLoader();
             _società = loader.LoadSocietà();
@@ -101,7 +105,7 @@ namespace ProgettoGIA.Model
         {
             if (sap == null)
             {
-                throw new ArgumentNullException("persister");
+                throw new ArgumentNullException("Errore: Durante la chiamata di LoadAtleti(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
             }
             ISocietàAtletiLoader loader = sap.GetLoader();
             _atleti = loader.LoadAtleti();
@@ -111,6 +115,7 @@ namespace ProgettoGIA.Model
         #endregion
         #region Metodi di Amministrazione
 
+        //Gara-----------------------------------------------------------------------------------------
         public void AddSpecialitàGara(Disciplina disciplina)
         {
             SpecialitàGara.Add(new SpecialitàGara(disciplina));
@@ -131,67 +136,27 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
-        public void AddAtletaToGara(Atleta atleta, List<Disciplina> discipline)
+        public void AddPrestazioneToAtleta(Atleta atleta, Disciplina disciplina, Prestazione prestazione)
         {
-            foreach (Disciplina d in discipline)
+            foreach (SpecialitàGara sg in _specialitàGara)
             {
-                foreach (SpecialitàGara sg in SpecialitàGara)
+                if (sg.Disciplina.Equals(disciplina))
                 {
-                    if (d.Equals(sg.Disciplina))
-                    {
-                        sg.AddAtleta(atleta);
-                    }
+                    sg.SetPrestazione(atleta, prestazione);
                 }
             }
-            OnChanged();
         }
 
-        
-
-        public void RemoveAtletaToGara(Atleta atleta)
-        {
-            foreach (SpecialitàGara sg in SpecialitàGara)
-            {
-                sg.RemoveAtleta(atleta);
-            }
-            OnChanged();
-        }
-
+        //atleta-----------------------------------------------------------------------------------------
         public void AddAtleta(Atleta atleta)
         {
             if (ExistAtleta(atleta))
             {
-                throw new ArgumentException("Atleta gia esisitenete, non puoi aggiungerlo.\n");
+                throw new ArgumentException("Errore: L'atleta è già esistente, non può essere aggiunto nuovamente.\n");
             }
             else
             {
                 Atleti.Add(atleta);
-            }
-            OnChanged();
-        }
-
-        public void AddSocietà(Società società)
-        {
-            if (ExistSocietà(società))
-            {
-                throw new ArgumentException("Società gia esisitenete, non puoi aggiungerla.\n");
-            }
-            else
-            {
-                Società.Add(società);
-            }
-            OnChanged();
-        }
-
-        public void RemoveSocietà(Società società)
-        {
-            if (SocietàPossiedeAtleti(società))
-            {
-                throw new ArgumentException("Società associata ad atleti, non puoi cancellarla.\n");
-            }
-            else
-            {
-                Società.Remove(società);
             }
             OnChanged();
         }
@@ -207,16 +172,56 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
-        public void AddPrestazioneToAtleta(Atleta atleta, Disciplina disciplina, Prestazione prestazione)
+        public void AddAtletaToGara(Atleta atleta, List<Disciplina> discipline)
         {
-            foreach (SpecialitàGara sg in _specialitàGara)
+            foreach (Disciplina d in discipline)
             {
-                if (sg.Disciplina.Equals(disciplina))
+                foreach (SpecialitàGara sg in SpecialitàGara)
                 {
-                    sg.SetPrestazione(atleta, prestazione);
+                    if (d.Equals(sg.Disciplina))
+                    {
+                        sg.AddAtleta(atleta);
+                    }
                 }
             }
+            OnChanged();
         }
+
+        public void RemoveAtletaToGara(Atleta atleta)
+        {
+            foreach (SpecialitàGara sg in SpecialitàGara)
+            {
+                sg.RemoveAtleta(atleta);
+            }
+            OnChanged();
+        }
+
+        //società-----------------------------------------------------------------------------------------
+        public void AddSocietà(Società società)
+        {
+            if (ExistSocietà(società))
+            {
+                throw new ArgumentException("Errore: La società è già esistente, non può essere aggiunta nuovamente.\n");
+            }
+            else
+            {
+                Società.Add(società);
+            }
+            OnChanged();
+        }
+
+        public void RemoveSocietà(Società società)
+        {
+            if (SocietàPossiedeAtleti(società))
+            {
+                throw new InvalidOperationException("Errore: La società è associata ad alcuni atleti, non potra quindi essere rimossa.\n");
+            }
+            else
+            {
+                Società.Remove(società);
+            }
+            OnChanged();
+        }    
 
         #endregion
         #region Metodi di Utlità
@@ -283,6 +288,7 @@ namespace ProgettoGIA.Model
 
         public void printGara()
         {
+            Console.Write("\n--------------------------------\n-------------GARA---------------\n--------------------------------\n");
             foreach (SpecialitàGara sg in _specialitàGara)
             {
                 Console.Write("DISCIPLINA :" + sg.Disciplina + "\n");
