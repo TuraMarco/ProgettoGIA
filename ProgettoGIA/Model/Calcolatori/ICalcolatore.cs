@@ -2,6 +2,6 @@
 {
     public interface ICalcolatore
     {
-        float CalcolaPunteggio(Prestazione p);
+        void CalcolaPunteggio(Prestazione p);
     }
 }

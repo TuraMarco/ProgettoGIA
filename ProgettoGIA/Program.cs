@@ -86,18 +86,29 @@ namespace ProgettoGIA
             List<Atleta> aList = g.Atleti;
             List<Disciplina> dList = g.DisciplineInGara;
             Prestazione p1 = new Prestazione(dList[0]);
-            Prestazione p2 = new Prestazione(dList[0]);
+            Prestazione p2 = new Prestazione(dList[1]);
             Prestazione p3 = new Prestazione(dList[0]);
-            Prestazione p4 = new Prestazione(dList[0]);
+            Prestazione p4 = new Prestazione(dList[1]);
             Prestazione p5 = new Prestazione(dList[0]);
-            Prestazione p6 = new Prestazione(dList[0]);
+            Prestazione p6 = new Prestazione(dList[1]);
 
             p1.IsCompletata = true;
+            p1.Misurazione = 100;
+
             p2.IsCompletata = true;
+            p2.Misurazione = 101;
+
             p3.IsCompletata = true;
+            p3.Misurazione = 102;
+
             p4.IsCompletata = true;
+            p4.Misurazione = 103;
+
             p5.IsCompletata = true;
+            p5.Misurazione = 104;
+
             p6.IsCompletata = true;
+            p6.Misurazione = 105;
 
             g.AddAtletaToGara(aList[0], dList);
             g.AddPrestazioneToAtleta(aList[0], dList[0], p1);

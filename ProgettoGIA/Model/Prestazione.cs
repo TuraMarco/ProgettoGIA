@@ -34,7 +34,7 @@ namespace ProgettoGIA.Model
         public bool Atrezzatura_zavorra { get => _atrezzatura_zavorra; set => _atrezzatura_zavorra = value; }
         public Cartellino Cartellino { get => _cartellino; set => _cartellino = value; }
         public int Penalità { get => _penalità; set => _penalità = value; }
-        public float Punteggio => _punteggio;
+        public float Punteggio { get => _punteggio; set => _punteggio = value; }
         public bool IsCompletata { get => _PrestazioneCompletata; set => _PrestazioneCompletata = value; }
 
         //costruttore
@@ -47,13 +47,8 @@ namespace ProgettoGIA.Model
         {
             if (this.IsCompletata)
             {
-                Random r = new Random();
-                _punteggio = Convert.ToSingle(r.NextDouble());
-
-                /*
                 ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
-                return c.CalcolaPunteggio(this);
-                */
+                c.CalcolaPunteggio(this);
             }
             else
             {
