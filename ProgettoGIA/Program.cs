@@ -19,16 +19,17 @@ namespace ProgettoGIA
         [STAThread]
         static void Main()
         {
+            /*
             //DEBUG
             Gara g = Gara.GetInstance();
             Demo(g);
-
-            /*
+            */
+            
             //APPLICAZIONE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-            */
+            
         }
 
         private static void Demo(Gara g)
