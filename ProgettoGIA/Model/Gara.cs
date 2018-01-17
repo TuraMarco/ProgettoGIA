@@ -197,6 +197,19 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
+        public Atleta GetAtletaForID(Guid id)
+        {
+            foreach (Atleta a in _atleti)
+            {
+                if (a.Guid.Equals(id))
+                {
+                    return a;
+                }
+            }
+
+            return null;
+        }
+
         //società-----------------------------------------------------------------------------------------
         public void AddSocietà(Società società)
         {

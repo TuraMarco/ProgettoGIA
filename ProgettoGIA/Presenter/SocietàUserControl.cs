@@ -45,7 +45,13 @@ namespace ProgettoGIA.Presenter
 
         private void _removeSocietàButton_Click(object sender, EventArgs e)
         {
-            Gara.GetInstance().RemoveSocietà(Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata));
+            Società s = Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata);
+            if (Gara.GetInstance().SocietàPossiedeAtleti(s))
+            {
+                MessageBox.Show("Si stà tentando di eliminare una società a cui sono associati degli atleti, l'operazione non puo essere portata a termine.", "Società associata ad Atleti", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Gara.GetInstance().RemoveSocietà(s);
             _nomeSocietàTextBox.Clear();
             _sedeSocietàTextBox.Clear();
         }

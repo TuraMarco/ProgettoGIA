@@ -73,6 +73,7 @@ namespace ProgettoGIA.Presenter
             }
             else
             {
+                MessageBox.Show("Si stà tentando di Aggiungere un utente con dati incompleti, l'operazione non puo essere portata a termine.", "Utente incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -88,7 +89,18 @@ namespace ProgettoGIA.Presenter
 
         private void _removeAtletaButton_Click(object sender, EventArgs e)
         {
+            Atleta a = Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata);
 
+            Gara.GetInstance().RemoveAtleta(a);
+
+            _nomeTextBox.Clear();
+            _cognomeTextBox.Clear();
+            _codiceFiscaleTextBox.Clear();
+            _societàComboBox.SelectedIndex = 0;
+            _dataNascitaTimePicker.Value = DateTime.Now;
+            _scadenzaCertificatoTimePicker.Value = DateTime.Now;
+            _maschioRadioButton.Select();
+            _istruttoreCheckBox.Checked = false;
         }
 
         private void _editAtletaButton_Click(object sender, EventArgs e)
