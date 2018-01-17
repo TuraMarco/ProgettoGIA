@@ -69,6 +69,7 @@
     <Compile Include="Persistence\IGaraPersisiter.cs" />
     <Compile Include="Persistence\ISocietàAtletiPersisiter.cs" />
     <Compile Include="Persistence\SocietàAtletiPersister.cs" />
+    <Compile Include="Presenter\AtletaDataGridViewPresenter.cs" />
     <Compile Include="Presenter\AtletiUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

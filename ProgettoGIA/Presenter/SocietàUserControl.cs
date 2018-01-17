@@ -32,7 +32,7 @@ namespace ProgettoGIA.Presenter
 
         private void _addSocietàButton_Click(object sender, EventArgs e)
         {
-            if(_nomeSocietàTextBox.Text.Length != 0 || _sedeSocietàTextBox.Text.Length != 0)
+            if(String.IsNullOrEmpty(_nomeSocietàTextBox.Text) || String.IsNullOrEmpty(_sedeSocietàTextBox.Text))
             {
                 Gara g = Gara.GetInstance();
                 g.AddSocietà(new Società(_nomeSocietàTextBox.Text, _sedeSocietàTextBox.Text, Guid.Empty));

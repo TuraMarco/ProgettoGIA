@@ -31,39 +31,41 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._atletiGridView = new System.Windows.Forms.DataGridView();
             this._panelAtleti = new System.Windows.Forms.Panel();
+            this._femminaRadioButton2 = new System.Windows.Forms.RadioButton();
+            this._maschioRadioButton = new System.Windows.Forms.RadioButton();
+            this._IscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this._camCheckBox = new System.Windows.Forms.CheckBox();
+            this._cnfCheckBox = new System.Windows.Forms.CheckBox();
+            this._cwmCheckBox = new System.Windows.Forms.CheckBox();
+            this._fioCheckBox = new System.Windows.Forms.CheckBox();
+            this._dymCheckBox = new System.Windows.Forms.CheckBox();
+            this._dnfCheckBox = new System.Windows.Forms.CheckBox();
+            this._dynCheckBox5 = new System.Windows.Forms.CheckBox();
+            this._cwfCheckBox = new System.Windows.Forms.CheckBox();
+            this._staCheckBox = new System.Windows.Forms.CheckBox();
+            this._fimCheckBox = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this._scadenzaCertificatoTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this._societàComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this._istruttoreCheckBox = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this._codiceFiscaleTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this._cognomeTextBox = new System.Windows.Forms.TextBox();
+            this._nomeTextBox = new System.Windows.Forms.TextBox();
             this._editAtletaButton = new System.Windows.Forms.Button();
             this._removeAtletaButton = new System.Windows.Forms.Button();
             this._addAtletaButton = new System.Windows.Forms.Button();
-            this._nomeTextBox = new System.Windows.Forms.TextBox();
-            this._cognomeTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this._codiceFiscaleTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this._istruttoreCheckBox = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this._societàComboBox = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this._scadenzaCertificatoTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this._fimCheckBox = new System.Windows.Forms.CheckBox();
-            this._staCheckBox = new System.Windows.Forms.CheckBox();
-            this._cwfCheckBox = new System.Windows.Forms.CheckBox();
-            this._dynCheckBox5 = new System.Windows.Forms.CheckBox();
-            this._dnfCheckBox = new System.Windows.Forms.CheckBox();
-            this._dymCheckBox = new System.Windows.Forms.CheckBox();
-            this._fioCheckBox = new System.Windows.Forms.CheckBox();
-            this._cwmCheckBox = new System.Windows.Forms.CheckBox();
-            this._cnfCheckBox = new System.Windows.Forms.CheckBox();
-            this._camCheckBox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this._IscrizioneGaraGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -99,14 +101,16 @@
             // 
             // _panelAtleti
             // 
-            this._panelAtleti.Controls.Add(this.groupBox2);
+            this._panelAtleti.Controls.Add(this._femminaRadioButton2);
+            this._panelAtleti.Controls.Add(this._maschioRadioButton);
+            this._panelAtleti.Controls.Add(this._IscrizioneGaraGroupBox);
             this._panelAtleti.Controls.Add(this.label10);
             this._panelAtleti.Controls.Add(this._scadenzaCertificatoTimePicker);
             this._panelAtleti.Controls.Add(this.label9);
             this._panelAtleti.Controls.Add(this._societàComboBox);
             this._panelAtleti.Controls.Add(this.label8);
             this._panelAtleti.Controls.Add(this._istruttoreCheckBox);
-            this._panelAtleti.Controls.Add(this.dateTimePicker2);
+            this._panelAtleti.Controls.Add(this.dateTimePicker);
             this._panelAtleti.Controls.Add(this.label7);
             this._panelAtleti.Controls.Add(this._codiceFiscaleTextBox);
             this._panelAtleti.Controls.Add(this.label2);
@@ -121,6 +125,275 @@
             this._panelAtleti.Name = "_panelAtleti";
             this._panelAtleti.Size = new System.Drawing.Size(488, 594);
             this._panelAtleti.TabIndex = 2;
+            // 
+            // _femminaRadioButton2
+            // 
+            this._femminaRadioButton2.AutoSize = true;
+            this._femminaRadioButton2.Location = new System.Drawing.Point(150, 309);
+            this._femminaRadioButton2.Name = "_femminaRadioButton2";
+            this._femminaRadioButton2.Size = new System.Drawing.Size(74, 17);
+            this._femminaRadioButton2.TabIndex = 29;
+            this._femminaRadioButton2.TabStop = true;
+            this._femminaRadioButton2.Text = "FEMMINA";
+            this._femminaRadioButton2.UseVisualStyleBackColor = true;
+            // 
+            // _maschioRadioButton
+            // 
+            this._maschioRadioButton.AutoSize = true;
+            this._maschioRadioButton.Location = new System.Drawing.Point(150, 286);
+            this._maschioRadioButton.Name = "_maschioRadioButton";
+            this._maschioRadioButton.Size = new System.Drawing.Size(74, 17);
+            this._maschioRadioButton.TabIndex = 28;
+            this._maschioRadioButton.TabStop = true;
+            this._maschioRadioButton.Text = "MASCHIO";
+            this._maschioRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // _IscrizioneGaraGroupBox
+            // 
+            this._IscrizioneGaraGroupBox.Controls.Add(this.button2);
+            this._IscrizioneGaraGroupBox.Controls.Add(this.button1);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._camCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._cnfCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._cwmCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._fioCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._dymCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._dnfCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._dynCheckBox5);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._cwfCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._staCheckBox);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._fimCheckBox);
+            this._IscrizioneGaraGroupBox.Location = new System.Drawing.Point(24, 384);
+            this._IscrizioneGaraGroupBox.Name = "_IscrizioneGaraGroupBox";
+            this._IscrizioneGaraGroupBox.Size = new System.Drawing.Size(416, 180);
+            this._IscrizioneGaraGroupBox.TabIndex = 27;
+            this._IscrizioneGaraGroupBox.TabStop = false;
+            this._IscrizioneGaraGroupBox.Text = "Iscrizione Atleti alla Gara";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(247, 90);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Rimuovi Atleta dalla Gara";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(247, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 40);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Aggiungi Atleta alla Gara";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // _camCheckBox
+            // 
+            this._camCheckBox.AutoSize = true;
+            this._camCheckBox.Location = new System.Drawing.Point(113, 126);
+            this._camCheckBox.Name = "_camCheckBox";
+            this._camCheckBox.Size = new System.Drawing.Size(49, 17);
+            this._camCheckBox.TabIndex = 10;
+            this._camCheckBox.Text = "CAM";
+            this._camCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _cnfCheckBox
+            // 
+            this._cnfCheckBox.AutoSize = true;
+            this._cnfCheckBox.Location = new System.Drawing.Point(113, 80);
+            this._cnfCheckBox.Name = "_cnfCheckBox";
+            this._cnfCheckBox.Size = new System.Drawing.Size(47, 17);
+            this._cnfCheckBox.TabIndex = 9;
+            this._cnfCheckBox.Text = "CNF";
+            this._cnfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _cwmCheckBox
+            // 
+            this._cwmCheckBox.AutoSize = true;
+            this._cwmCheckBox.Location = new System.Drawing.Point(113, 57);
+            this._cwmCheckBox.Name = "_cwmCheckBox";
+            this._cwmCheckBox.Size = new System.Drawing.Size(53, 17);
+            this._cwmCheckBox.TabIndex = 8;
+            this._cwmCheckBox.Text = "CWM";
+            this._cwmCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _fioCheckBox
+            // 
+            this._fioCheckBox.AutoSize = true;
+            this._fioCheckBox.Location = new System.Drawing.Point(27, 126);
+            this._fioCheckBox.Name = "_fioCheckBox";
+            this._fioCheckBox.Size = new System.Drawing.Size(43, 17);
+            this._fioCheckBox.TabIndex = 7;
+            this._fioCheckBox.Text = "FIO";
+            this._fioCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _dymCheckBox
+            // 
+            this._dymCheckBox.AutoSize = true;
+            this._dymCheckBox.Location = new System.Drawing.Point(27, 80);
+            this._dymCheckBox.Name = "_dymCheckBox";
+            this._dymCheckBox.Size = new System.Drawing.Size(50, 17);
+            this._dymCheckBox.TabIndex = 5;
+            this._dymCheckBox.Text = "DYM";
+            this._dymCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _dnfCheckBox
+            // 
+            this._dnfCheckBox.AutoSize = true;
+            this._dnfCheckBox.Location = new System.Drawing.Point(27, 103);
+            this._dnfCheckBox.Name = "_dnfCheckBox";
+            this._dnfCheckBox.Size = new System.Drawing.Size(48, 17);
+            this._dnfCheckBox.TabIndex = 4;
+            this._dnfCheckBox.Text = "DNF";
+            this._dnfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _dynCheckBox5
+            // 
+            this._dynCheckBox5.AutoSize = true;
+            this._dynCheckBox5.Location = new System.Drawing.Point(27, 57);
+            this._dynCheckBox5.Name = "_dynCheckBox5";
+            this._dynCheckBox5.Size = new System.Drawing.Size(49, 17);
+            this._dynCheckBox5.TabIndex = 3;
+            this._dynCheckBox5.Text = "DYN";
+            this._dynCheckBox5.UseVisualStyleBackColor = true;
+            // 
+            // _cwfCheckBox
+            // 
+            this._cwfCheckBox.AutoSize = true;
+            this._cwfCheckBox.Location = new System.Drawing.Point(113, 34);
+            this._cwfCheckBox.Name = "_cwfCheckBox";
+            this._cwfCheckBox.Size = new System.Drawing.Size(50, 17);
+            this._cwfCheckBox.TabIndex = 2;
+            this._cwfCheckBox.Text = "CWF";
+            this._cwfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _staCheckBox
+            // 
+            this._staCheckBox.AutoSize = true;
+            this._staCheckBox.Location = new System.Drawing.Point(27, 34);
+            this._staCheckBox.Name = "_staCheckBox";
+            this._staCheckBox.Size = new System.Drawing.Size(47, 17);
+            this._staCheckBox.TabIndex = 1;
+            this._staCheckBox.Text = "STA";
+            this._staCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _fimCheckBox
+            // 
+            this._fimCheckBox.AutoSize = true;
+            this._fimCheckBox.Location = new System.Drawing.Point(113, 103);
+            this._fimCheckBox.Name = "_fimCheckBox";
+            this._fimCheckBox.Size = new System.Drawing.Size(44, 17);
+            this._fimCheckBox.TabIndex = 0;
+            this._fimCheckBox.Text = "FIM";
+            this._fimCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(39, 348);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(105, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Scadenza Certificato";
+            // 
+            // _scadenzaCertificatoTimePicker
+            // 
+            this._scadenzaCertificatoTimePicker.Location = new System.Drawing.Point(150, 342);
+            this._scadenzaCertificatoTimePicker.Name = "_scadenzaCertificatoTimePicker";
+            this._scadenzaCertificatoTimePicker.Size = new System.Drawing.Size(191, 20);
+            this._scadenzaCertificatoTimePicker.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 248);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Società di Appartenenza";
+            // 
+            // _societàComboBox
+            // 
+            this._societàComboBox.FormattingEnabled = true;
+            this._societàComboBox.Location = new System.Drawing.Point(150, 245);
+            this._societàComboBox.Name = "_societàComboBox";
+            this._societàComboBox.Size = new System.Drawing.Size(290, 21);
+            this._societàComboBox.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(64, 209);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Data di Nascita";
+            // 
+            // _istruttoreCheckBox
+            // 
+            this._istruttoreCheckBox.AutoSize = true;
+            this._istruttoreCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._istruttoreCheckBox.Location = new System.Drawing.Point(373, 210);
+            this._istruttoreCheckBox.Name = "_istruttoreCheckBox";
+            this._istruttoreCheckBox.Size = new System.Drawing.Size(67, 17);
+            this._istruttoreCheckBox.TabIndex = 21;
+            this._istruttoreCheckBox.Text = "Istruttore";
+            this._istruttoreCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(150, 205);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(191, 20);
+            this.dateTimePicker.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(118, 168);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "C.F.";
+            // 
+            // _codiceFiscaleTextBox
+            // 
+            this._codiceFiscaleTextBox.Location = new System.Drawing.Point(150, 165);
+            this._codiceFiscaleTextBox.Name = "_codiceFiscaleTextBox";
+            this._codiceFiscaleTextBox.Size = new System.Drawing.Size(290, 20);
+            this._codiceFiscaleTextBox.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(92, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Cognome";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(109, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Nome";
+            // 
+            // _cognomeTextBox
+            // 
+            this._cognomeTextBox.Location = new System.Drawing.Point(150, 123);
+            this._cognomeTextBox.Name = "_cognomeTextBox";
+            this._cognomeTextBox.Size = new System.Drawing.Size(290, 20);
+            this._cognomeTextBox.TabIndex = 11;
+            // 
+            // _nomeTextBox
+            // 
+            this._nomeTextBox.Location = new System.Drawing.Point(150, 80);
+            this._nomeTextBox.Name = "_nomeTextBox";
+            this._nomeTextBox.Size = new System.Drawing.Size(290, 20);
+            this._nomeTextBox.TabIndex = 10;
             // 
             // _editAtletaButton
             // 
@@ -148,253 +421,7 @@
             this._addAtletaButton.TabIndex = 7;
             this._addAtletaButton.Text = "Aggiungi Atleta";
             this._addAtletaButton.UseVisualStyleBackColor = true;
-            // 
-            // _nomeTextBox
-            // 
-            this._nomeTextBox.Location = new System.Drawing.Point(150, 80);
-            this._nomeTextBox.Name = "_nomeTextBox";
-            this._nomeTextBox.Size = new System.Drawing.Size(290, 20);
-            this._nomeTextBox.TabIndex = 10;
-            // 
-            // _cognomeTextBox
-            // 
-            this._cognomeTextBox.Location = new System.Drawing.Point(150, 123);
-            this._cognomeTextBox.Name = "_cognomeTextBox";
-            this._cognomeTextBox.Size = new System.Drawing.Size(290, 20);
-            this._cognomeTextBox.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Nome";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Cognome";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(118, 168);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "C.F.";
-            // 
-            // _codiceFiscaleTextBox
-            // 
-            this._codiceFiscaleTextBox.Location = new System.Drawing.Point(150, 165);
-            this._codiceFiscaleTextBox.Name = "_codiceFiscaleTextBox";
-            this._codiceFiscaleTextBox.Size = new System.Drawing.Size(290, 20);
-            this._codiceFiscaleTextBox.TabIndex = 18;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(150, 205);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker2.TabIndex = 20;
-            // 
-            // _istruttoreCheckBox
-            // 
-            this._istruttoreCheckBox.AutoSize = true;
-            this._istruttoreCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this._istruttoreCheckBox.Location = new System.Drawing.Point(373, 210);
-            this._istruttoreCheckBox.Name = "_istruttoreCheckBox";
-            this._istruttoreCheckBox.Size = new System.Drawing.Size(67, 17);
-            this._istruttoreCheckBox.TabIndex = 21;
-            this._istruttoreCheckBox.Text = "Istruttore";
-            this._istruttoreCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(64, 209);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Data di Nascita";
-            // 
-            // _societàComboBox
-            // 
-            this._societàComboBox.FormattingEnabled = true;
-            this._societàComboBox.Location = new System.Drawing.Point(150, 245);
-            this._societàComboBox.Name = "_societàComboBox";
-            this._societàComboBox.Size = new System.Drawing.Size(290, 21);
-            this._societàComboBox.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 248);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 13);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Società di Appartenenza";
-            // 
-            // _scadenzaCertificatoTimePicker
-            // 
-            this._scadenzaCertificatoTimePicker.Location = new System.Drawing.Point(150, 287);
-            this._scadenzaCertificatoTimePicker.Name = "_scadenzaCertificatoTimePicker";
-            this._scadenzaCertificatoTimePicker.Size = new System.Drawing.Size(191, 20);
-            this._scadenzaCertificatoTimePicker.TabIndex = 25;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 293);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Scadenza Certificato";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this._camCheckBox);
-            this.groupBox2.Controls.Add(this._cnfCheckBox);
-            this.groupBox2.Controls.Add(this._cwmCheckBox);
-            this.groupBox2.Controls.Add(this._fioCheckBox);
-            this.groupBox2.Controls.Add(this._dymCheckBox);
-            this.groupBox2.Controls.Add(this._dnfCheckBox);
-            this.groupBox2.Controls.Add(this._dynCheckBox5);
-            this.groupBox2.Controls.Add(this._cwfCheckBox);
-            this.groupBox2.Controls.Add(this._staCheckBox);
-            this.groupBox2.Controls.Add(this._fimCheckBox);
-            this.groupBox2.Location = new System.Drawing.Point(24, 335);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(416, 180);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Iscrizione Atleti alla Gara";
-            // 
-            // _fimCheckBox
-            // 
-            this._fimCheckBox.AutoSize = true;
-            this._fimCheckBox.Location = new System.Drawing.Point(113, 103);
-            this._fimCheckBox.Name = "_fimCheckBox";
-            this._fimCheckBox.Size = new System.Drawing.Size(44, 17);
-            this._fimCheckBox.TabIndex = 0;
-            this._fimCheckBox.Text = "FIM";
-            this._fimCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _staCheckBox
-            // 
-            this._staCheckBox.AutoSize = true;
-            this._staCheckBox.Location = new System.Drawing.Point(27, 34);
-            this._staCheckBox.Name = "_staCheckBox";
-            this._staCheckBox.Size = new System.Drawing.Size(47, 17);
-            this._staCheckBox.TabIndex = 1;
-            this._staCheckBox.Text = "STA";
-            this._staCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _cwfCheckBox
-            // 
-            this._cwfCheckBox.AutoSize = true;
-            this._cwfCheckBox.Location = new System.Drawing.Point(113, 34);
-            this._cwfCheckBox.Name = "_cwfCheckBox";
-            this._cwfCheckBox.Size = new System.Drawing.Size(50, 17);
-            this._cwfCheckBox.TabIndex = 2;
-            this._cwfCheckBox.Text = "CWF";
-            this._cwfCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _dynCheckBox5
-            // 
-            this._dynCheckBox5.AutoSize = true;
-            this._dynCheckBox5.Location = new System.Drawing.Point(27, 57);
-            this._dynCheckBox5.Name = "_dynCheckBox5";
-            this._dynCheckBox5.Size = new System.Drawing.Size(49, 17);
-            this._dynCheckBox5.TabIndex = 3;
-            this._dynCheckBox5.Text = "DYN";
-            this._dynCheckBox5.UseVisualStyleBackColor = true;
-            // 
-            // _dnfCheckBox
-            // 
-            this._dnfCheckBox.AutoSize = true;
-            this._dnfCheckBox.Location = new System.Drawing.Point(27, 103);
-            this._dnfCheckBox.Name = "_dnfCheckBox";
-            this._dnfCheckBox.Size = new System.Drawing.Size(48, 17);
-            this._dnfCheckBox.TabIndex = 4;
-            this._dnfCheckBox.Text = "DNF";
-            this._dnfCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _dymCheckBox
-            // 
-            this._dymCheckBox.AutoSize = true;
-            this._dymCheckBox.Location = new System.Drawing.Point(27, 80);
-            this._dymCheckBox.Name = "_dymCheckBox";
-            this._dymCheckBox.Size = new System.Drawing.Size(50, 17);
-            this._dymCheckBox.TabIndex = 5;
-            this._dymCheckBox.Text = "DYM";
-            this._dymCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _fioCheckBox
-            // 
-            this._fioCheckBox.AutoSize = true;
-            this._fioCheckBox.Location = new System.Drawing.Point(27, 126);
-            this._fioCheckBox.Name = "_fioCheckBox";
-            this._fioCheckBox.Size = new System.Drawing.Size(43, 17);
-            this._fioCheckBox.TabIndex = 7;
-            this._fioCheckBox.Text = "FIO";
-            this._fioCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _cwmCheckBox
-            // 
-            this._cwmCheckBox.AutoSize = true;
-            this._cwmCheckBox.Location = new System.Drawing.Point(113, 57);
-            this._cwmCheckBox.Name = "_cwmCheckBox";
-            this._cwmCheckBox.Size = new System.Drawing.Size(53, 17);
-            this._cwmCheckBox.TabIndex = 8;
-            this._cwmCheckBox.Text = "CWM";
-            this._cwmCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _cnfCheckBox
-            // 
-            this._cnfCheckBox.AutoSize = true;
-            this._cnfCheckBox.Location = new System.Drawing.Point(113, 80);
-            this._cnfCheckBox.Name = "_cnfCheckBox";
-            this._cnfCheckBox.Size = new System.Drawing.Size(47, 17);
-            this._cnfCheckBox.TabIndex = 9;
-            this._cnfCheckBox.Text = "CNF";
-            this._cnfCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _camCheckBox
-            // 
-            this._camCheckBox.AutoSize = true;
-            this._camCheckBox.Location = new System.Drawing.Point(113, 126);
-            this._camCheckBox.Name = "_camCheckBox";
-            this._camCheckBox.Size = new System.Drawing.Size(49, 17);
-            this._camCheckBox.TabIndex = 10;
-            this._camCheckBox.Text = "CAM";
-            this._camCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(247, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Aggiungi Atleta alla Gara";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(247, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 40);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Rimuovi Atleta dalla Gara";
-            this.button2.UseVisualStyleBackColor = true;
+            this._addAtletaButton.Click += new System.EventHandler(this._addAtletaButton_Click);
             // 
             // AtletiUserControl
             // 
@@ -407,8 +434,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).EndInit();
             this._panelAtleti.ResumeLayout(false);
             this._panelAtleti.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this._IscrizioneGaraGroupBox.ResumeLayout(false);
+            this._IscrizioneGaraGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -423,28 +450,18 @@
         private System.Windows.Forms.Button _addAtletaButton;
         private System.Windows.Forms.TextBox _cognomeTextBox;
         private System.Windows.Forms.TextBox _nomeTextBox;
-        private System.Windows.Forms.DateTimePicker _dataNascitaTimePicker;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox _codiceFiscaleTextBox;
         private System.Windows.Forms.CheckBox _istruttoreCheckBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox _societàComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker _scadenzaCertificatoTimePicker;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox _IscrizioneGaraGroupBox;
         private System.Windows.Forms.CheckBox _cnfCheckBox;
         private System.Windows.Forms.CheckBox _cwmCheckBox;
         private System.Windows.Forms.CheckBox _fioCheckBox;
@@ -457,5 +474,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox _camCheckBox;
+        private System.Windows.Forms.RadioButton _femminaRadioButton2;
+        private System.Windows.Forms.RadioButton _maschioRadioButton;
     }
 }
