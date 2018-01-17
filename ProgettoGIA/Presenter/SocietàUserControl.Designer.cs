@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this._sedeSocietàTextBox = new System.Windows.Forms.TextBox();
             this._nomeSocietàTextBox = new System.Windows.Forms.TextBox();
+            this._clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._societàGridView)).BeginInit();
             this._panelSocietà.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             // _panelSocietà
             // 
+            this._panelSocietà.Controls.Add(this._clearButton);
             this._panelSocietà.Controls.Add(this._editSocietàButton);
             this._panelSocietà.Controls.Add(this._removeSocietàButton);
             this._panelSocietà.Controls.Add(this._addSocietàButton);
@@ -151,6 +153,16 @@
             this._nomeSocietàTextBox.Size = new System.Drawing.Size(290, 20);
             this._nomeSocietàTextBox.TabIndex = 0;
             // 
+            // _clearButton
+            // 
+            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
+            this._clearButton.Location = new System.Drawing.Point(455, 3);
+            this._clearButton.Name = "_clearButton";
+            this._clearButton.Size = new System.Drawing.Size(30, 30);
+            this._clearButton.TabIndex = 32;
+            this._clearButton.UseVisualStyleBackColor = true;
+            this._clearButton.Click += new System.EventHandler(this._clearButton_Click);
+            // 
             // SocietàUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Button _addSocietàButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button _clearButton;
     }
 }

@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._atletiGridView = new System.Windows.Forms.DataGridView();
             this._panelAtleti = new System.Windows.Forms.Panel();
+            this._clearButton = new System.Windows.Forms.Button();
             this._femminaRadioButton = new System.Windows.Forms.RadioButton();
             this._maschioRadioButton = new System.Windows.Forms.RadioButton();
             this._IscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
@@ -62,7 +63,6 @@
             this._editAtletaButton = new System.Windows.Forms.Button();
             this._removeAtletaButton = new System.Windows.Forms.Button();
             this._addAtletaButton = new System.Windows.Forms.Button();
-            this._clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
@@ -128,6 +128,16 @@
             this._panelAtleti.Name = "_panelAtleti";
             this._panelAtleti.Size = new System.Drawing.Size(488, 594);
             this._panelAtleti.TabIndex = 2;
+            // 
+            // _clearButton
+            // 
+            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
+            this._clearButton.Location = new System.Drawing.Point(455, 3);
+            this._clearButton.Name = "_clearButton";
+            this._clearButton.Size = new System.Drawing.Size(30, 30);
+            this._clearButton.TabIndex = 31;
+            this._clearButton.UseVisualStyleBackColor = true;
+            this._clearButton.Click += new System.EventHandler(this._clearButton_Click);
             // 
             // _femminaRadioButton
             // 
@@ -427,15 +437,6 @@
             this._addAtletaButton.Text = "Aggiungi Atleta";
             this._addAtletaButton.UseVisualStyleBackColor = true;
             this._addAtletaButton.Click += new System.EventHandler(this._addAtletaButton_Click);
-            // 
-            // _clearButton
-            // 
-            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
-            this._clearButton.Location = new System.Drawing.Point(455, 3);
-            this._clearButton.Name = "_clearButton";
-            this._clearButton.Size = new System.Drawing.Size(30, 30);
-            this._clearButton.TabIndex = 31;
-            this._clearButton.UseVisualStyleBackColor = true;
             // 
             // AtletiUserControl
             // 

@@ -73,5 +73,11 @@ namespace ProgettoGIA.Presenter
                 _guidSocietàSelezionata = (Guid)row.Cells[2].Value;
             }
         }
+
+        private void _clearButton_Click(object sender, EventArgs e)
+        {
+            _nomeSocietàTextBox.Clear();
+            _sedeSocietàTextBox.Clear();
+        }
     }
 }

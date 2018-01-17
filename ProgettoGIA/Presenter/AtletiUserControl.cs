@@ -48,11 +48,11 @@ namespace ProgettoGIA.Presenter
 
                 if (_maschioRadioButton.Enabled)
                 {
-                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.MASCHIO, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Enabled, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
+                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.MASCHIO, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Checked, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
                 }
                 else
                 {
-                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.FEMMINA, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Enabled, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
+                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.FEMMINA, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Checked, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
                 }
 
                 if (a.IsEtàInferiore14())
@@ -82,8 +82,8 @@ namespace ProgettoGIA.Presenter
             _societàComboBox.SelectedIndex = 0;
             _dataNascitaTimePicker.Value = DateTime.Now;
             _scadenzaCertificatoTimePicker.Value = DateTime.Now;
-            _maschioRadioButton.Enabled = true;
-            _istruttoreCheckBox.Enabled = false;
+            _maschioRadioButton.Select();
+            _istruttoreCheckBox.Checked = false;
         }
 
         private void _removeAtletaButton_Click(object sender, EventArgs e)
@@ -117,15 +117,22 @@ namespace ProgettoGIA.Presenter
                     _femminaRadioButton.Select();
                 }
                 _dataNascitaTimePicker.Value = (DateTime)row.Cells[5].Value;
-                _istruttoreCheckBox.Enabled = (bool)row.Cells[6].Value;
+                _istruttoreCheckBox.Checked = (bool)row.Cells[6].Value;
                 _societàComboBox.SelectedItem = (Società)row.Cells[7].Value;
                 _scadenzaCertificatoTimePicker.Value = (DateTime)row.Cells[8].Value;
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void _clearButton_Click(object sender, EventArgs e)
         {
-
+            _nomeTextBox.Clear();
+            _cognomeTextBox.Clear();
+            _codiceFiscaleTextBox.Clear();
+            _societàComboBox.SelectedIndex = 0;
+            _dataNascitaTimePicker.Value = DateTime.Now;
+            _scadenzaCertificatoTimePicker.Value = DateTime.Now;
+            _maschioRadioButton.Select();
+            _istruttoreCheckBox.Checked = false;
         }
     }
 }
