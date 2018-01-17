@@ -276,7 +276,7 @@
             this.groupBox2.Size = new System.Drawing.Size(416, 180);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Amministrazione Atleti";
+            this.groupBox2.Text = "Iscrizione Atleti alla Gara";
             // 
             // _fimCheckBox
             // 
