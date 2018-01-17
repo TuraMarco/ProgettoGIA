@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presenter\AtletiUserControl.resx">
+      <DependentUpon>AtletiUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presenter\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

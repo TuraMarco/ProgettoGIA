@@ -44,6 +44,18 @@ namespace ProgettoGIA.Presenter
         private void _removeSocietàButton_Click(object sender, EventArgs e)
         {
             Gara.GetInstance().RemoveSocietà(Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata));
+            _nomeSocietàTextBox.Clear();
+            _sedeSocietàTextBox.Clear();
+        }
+
+        private void _editSocietàButton_Click(object sender, EventArgs e)
+        {
+            Società s = Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata);
+            s.Nome = _nomeSocietàTextBox.Text;
+            s.Sede = _sedeSocietàTextBox.Text;
+
+            _nomeSocietàTextBox.Clear();
+            _sedeSocietàTextBox.Clear();
         }
 
         private void _societàGridView_CellClick(object sender, DataGridViewCellEventArgs e)

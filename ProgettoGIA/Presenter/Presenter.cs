@@ -24,7 +24,6 @@ namespace ProgettoGIA.Presenter
             _gara = Gara.GetInstance();
             _gara.Changed += OnGaraChanged;
             InitializeControl();
-            //RefreshControl();
         }
 
         public TControl Control
