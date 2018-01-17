@@ -43,13 +43,27 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this._istruttoreCheckBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this._societàComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this._scadenzaCertificatoTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this._fimCheckBox = new System.Windows.Forms.CheckBox();
+            this._staCheckBox = new System.Windows.Forms.CheckBox();
+            this._cwfCheckBox = new System.Windows.Forms.CheckBox();
+            this._dynCheckBox5 = new System.Windows.Forms.CheckBox();
+            this._dnfCheckBox = new System.Windows.Forms.CheckBox();
+            this._dymCheckBox = new System.Windows.Forms.CheckBox();
+            this._fioCheckBox = new System.Windows.Forms.CheckBox();
+            this._cwmCheckBox = new System.Windows.Forms.CheckBox();
+            this._cnfCheckBox = new System.Windows.Forms.CheckBox();
+            this._camCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -85,10 +99,11 @@
             // 
             // _panelAtleti
             // 
+            this._panelAtleti.Controls.Add(this.groupBox2);
             this._panelAtleti.Controls.Add(this.label10);
-            this._panelAtleti.Controls.Add(this.dateTimePicker3);
+            this._panelAtleti.Controls.Add(this._scadenzaCertificatoTimePicker);
             this._panelAtleti.Controls.Add(this.label9);
-            this._panelAtleti.Controls.Add(this.comboBox2);
+            this._panelAtleti.Controls.Add(this._societàComboBox);
             this._panelAtleti.Controls.Add(this.label8);
             this._panelAtleti.Controls.Add(this._istruttoreCheckBox);
             this._panelAtleti.Controls.Add(this.dateTimePicker2);
@@ -209,13 +224,13 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Data di Nascita";
             // 
-            // comboBox2
+            // _societàComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(150, 245);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(290, 21);
-            this.comboBox2.TabIndex = 23;
+            this._societàComboBox.FormattingEnabled = true;
+            this._societàComboBox.Location = new System.Drawing.Point(150, 245);
+            this._societàComboBox.Name = "_societàComboBox";
+            this._societàComboBox.Size = new System.Drawing.Size(290, 21);
+            this._societàComboBox.TabIndex = 23;
             // 
             // label9
             // 
@@ -226,12 +241,12 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Società di Appartenenza";
             // 
-            // dateTimePicker3
+            // _scadenzaCertificatoTimePicker
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(150, 287);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker3.TabIndex = 25;
+            this._scadenzaCertificatoTimePicker.Location = new System.Drawing.Point(150, 287);
+            this._scadenzaCertificatoTimePicker.Name = "_scadenzaCertificatoTimePicker";
+            this._scadenzaCertificatoTimePicker.Size = new System.Drawing.Size(191, 20);
+            this._scadenzaCertificatoTimePicker.TabIndex = 25;
             // 
             // label10
             // 
@@ -241,6 +256,145 @@
             this.label10.Size = new System.Drawing.Size(105, 13);
             this.label10.TabIndex = 26;
             this.label10.Text = "Scadenza Certificato";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this._camCheckBox);
+            this.groupBox2.Controls.Add(this._cnfCheckBox);
+            this.groupBox2.Controls.Add(this._cwmCheckBox);
+            this.groupBox2.Controls.Add(this._fioCheckBox);
+            this.groupBox2.Controls.Add(this._dymCheckBox);
+            this.groupBox2.Controls.Add(this._dnfCheckBox);
+            this.groupBox2.Controls.Add(this._dynCheckBox5);
+            this.groupBox2.Controls.Add(this._cwfCheckBox);
+            this.groupBox2.Controls.Add(this._staCheckBox);
+            this.groupBox2.Controls.Add(this._fimCheckBox);
+            this.groupBox2.Location = new System.Drawing.Point(24, 335);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(416, 180);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Amministrazione Atleti";
+            // 
+            // _fimCheckBox
+            // 
+            this._fimCheckBox.AutoSize = true;
+            this._fimCheckBox.Location = new System.Drawing.Point(113, 103);
+            this._fimCheckBox.Name = "_fimCheckBox";
+            this._fimCheckBox.Size = new System.Drawing.Size(44, 17);
+            this._fimCheckBox.TabIndex = 0;
+            this._fimCheckBox.Text = "FIM";
+            this._fimCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _staCheckBox
+            // 
+            this._staCheckBox.AutoSize = true;
+            this._staCheckBox.Location = new System.Drawing.Point(27, 34);
+            this._staCheckBox.Name = "_staCheckBox";
+            this._staCheckBox.Size = new System.Drawing.Size(47, 17);
+            this._staCheckBox.TabIndex = 1;
+            this._staCheckBox.Text = "STA";
+            this._staCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _cwfCheckBox
+            // 
+            this._cwfCheckBox.AutoSize = true;
+            this._cwfCheckBox.Location = new System.Drawing.Point(113, 34);
+            this._cwfCheckBox.Name = "_cwfCheckBox";
+            this._cwfCheckBox.Size = new System.Drawing.Size(50, 17);
+            this._cwfCheckBox.TabIndex = 2;
+            this._cwfCheckBox.Text = "CWF";
+            this._cwfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _dynCheckBox5
+            // 
+            this._dynCheckBox5.AutoSize = true;
+            this._dynCheckBox5.Location = new System.Drawing.Point(27, 57);
+            this._dynCheckBox5.Name = "_dynCheckBox5";
+            this._dynCheckBox5.Size = new System.Drawing.Size(49, 17);
+            this._dynCheckBox5.TabIndex = 3;
+            this._dynCheckBox5.Text = "DYN";
+            this._dynCheckBox5.UseVisualStyleBackColor = true;
+            // 
+            // _dnfCheckBox
+            // 
+            this._dnfCheckBox.AutoSize = true;
+            this._dnfCheckBox.Location = new System.Drawing.Point(27, 103);
+            this._dnfCheckBox.Name = "_dnfCheckBox";
+            this._dnfCheckBox.Size = new System.Drawing.Size(48, 17);
+            this._dnfCheckBox.TabIndex = 4;
+            this._dnfCheckBox.Text = "DNF";
+            this._dnfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _dymCheckBox
+            // 
+            this._dymCheckBox.AutoSize = true;
+            this._dymCheckBox.Location = new System.Drawing.Point(27, 80);
+            this._dymCheckBox.Name = "_dymCheckBox";
+            this._dymCheckBox.Size = new System.Drawing.Size(50, 17);
+            this._dymCheckBox.TabIndex = 5;
+            this._dymCheckBox.Text = "DYM";
+            this._dymCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _fioCheckBox
+            // 
+            this._fioCheckBox.AutoSize = true;
+            this._fioCheckBox.Location = new System.Drawing.Point(27, 126);
+            this._fioCheckBox.Name = "_fioCheckBox";
+            this._fioCheckBox.Size = new System.Drawing.Size(43, 17);
+            this._fioCheckBox.TabIndex = 7;
+            this._fioCheckBox.Text = "FIO";
+            this._fioCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _cwmCheckBox
+            // 
+            this._cwmCheckBox.AutoSize = true;
+            this._cwmCheckBox.Location = new System.Drawing.Point(113, 57);
+            this._cwmCheckBox.Name = "_cwmCheckBox";
+            this._cwmCheckBox.Size = new System.Drawing.Size(53, 17);
+            this._cwmCheckBox.TabIndex = 8;
+            this._cwmCheckBox.Text = "CWM";
+            this._cwmCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _cnfCheckBox
+            // 
+            this._cnfCheckBox.AutoSize = true;
+            this._cnfCheckBox.Location = new System.Drawing.Point(113, 80);
+            this._cnfCheckBox.Name = "_cnfCheckBox";
+            this._cnfCheckBox.Size = new System.Drawing.Size(47, 17);
+            this._cnfCheckBox.TabIndex = 9;
+            this._cnfCheckBox.Text = "CNF";
+            this._cnfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _camCheckBox
+            // 
+            this._camCheckBox.AutoSize = true;
+            this._camCheckBox.Location = new System.Drawing.Point(113, 126);
+            this._camCheckBox.Name = "_camCheckBox";
+            this._camCheckBox.Size = new System.Drawing.Size(49, 17);
+            this._camCheckBox.TabIndex = 10;
+            this._camCheckBox.Text = "CAM";
+            this._camCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(247, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 40);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Aggiungi Atleta alla Gara";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(247, 90);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(142, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Rimuovi Atleta dalla Gara";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // AtletiUserControl
             // 
@@ -253,6 +407,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).EndInit();
             this._panelAtleti.ResumeLayout(false);
             this._panelAtleti.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,9 +440,22 @@
         private System.Windows.Forms.CheckBox _istruttoreCheckBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox _societàComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker _scadenzaCertificatoTimePicker;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox _cnfCheckBox;
+        private System.Windows.Forms.CheckBox _cwmCheckBox;
+        private System.Windows.Forms.CheckBox _fioCheckBox;
+        private System.Windows.Forms.CheckBox _dymCheckBox;
+        private System.Windows.Forms.CheckBox _dnfCheckBox;
+        private System.Windows.Forms.CheckBox _dynCheckBox5;
+        private System.Windows.Forms.CheckBox _cwfCheckBox;
+        private System.Windows.Forms.CheckBox _staCheckBox;
+        private System.Windows.Forms.CheckBox _fimCheckBox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox _camCheckBox;
     }
 }
