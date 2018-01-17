@@ -69,16 +69,39 @@
     <Compile Include="Persistence\IGaraPersisiter.cs" />
     <Compile Include="Persistence\ISocietàAtletiPersisiter.cs" />
     <Compile Include="Persistence\SocietàAtletiPersister.cs" />
+    <Compile Include="Presenter\AtletiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presenter\AtletiUserControl.Designer.cs">
+      <DependentUpon>AtletiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\GaraUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presenter\GaraUserControl.Designer.cs">
+      <DependentUpon>GaraUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presenter\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presenter\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenter\SocietàDataGridViewPresenter.cs" />
+    <Compile Include="Presenter\SocietàUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presenter\SocietàUserControl.Designer.cs">
+      <DependentUpon>SocietàUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presenter\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presenter\SocietàUserControl.resx">
+      <DependentUpon>SocietàUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

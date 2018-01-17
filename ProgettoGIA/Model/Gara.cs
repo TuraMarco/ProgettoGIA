@@ -145,6 +145,7 @@ namespace ProgettoGIA.Model
                     sg.SetPrestazione(atleta, prestazione);
                 }
             }
+            OnChanged();
         }
 
         //atleta-----------------------------------------------------------------------------------------
@@ -221,7 +222,20 @@ namespace ProgettoGIA.Model
                 Società.Remove(società);
             }
             OnChanged();
-        }    
+        }
+
+        public Società GetSocietàForID(Guid id)
+        {
+            foreach (Società s in _società)
+            {
+                if (s.Guid.Equals(id))
+                {
+                    return s;
+                }
+            }
+
+            return null;
+        }
 
         #endregion
         #region Metodi di Utlità
