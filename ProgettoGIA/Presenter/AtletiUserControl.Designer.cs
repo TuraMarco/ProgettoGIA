@@ -45,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
@@ -83,6 +85,8 @@
             // 
             // _panelAtleti
             // 
+            this._panelAtleti.Controls.Add(this.label10);
+            this._panelAtleti.Controls.Add(this.dateTimePicker3);
             this._panelAtleti.Controls.Add(this.label9);
             this._panelAtleti.Controls.Add(this.comboBox2);
             this._panelAtleti.Controls.Add(this.label8);
@@ -222,6 +226,22 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Società di Appartenenza";
             // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(150, 287);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(191, 20);
+            this.dateTimePicker3.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(39, 293);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(105, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Scadenza Certificato";
+            // 
             // AtletiUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,5 +286,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
     }
 }
