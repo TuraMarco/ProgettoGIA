@@ -31,11 +31,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._atletiGridView = new System.Windows.Forms.DataGridView();
             this._panelAtleti = new System.Windows.Forms.Panel();
-            this._femminaRadioButton2 = new System.Windows.Forms.RadioButton();
+            this._femminaRadioButton = new System.Windows.Forms.RadioButton();
             this._maschioRadioButton = new System.Windows.Forms.RadioButton();
             this._IscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this._rimuoviAtletiDallaGaraButton = new System.Windows.Forms.Button();
+            this._aggiungiAtletiAllaGaraButton = new System.Windows.Forms.Button();
             this._camCheckBox = new System.Windows.Forms.CheckBox();
             this._cnfCheckBox = new System.Windows.Forms.CheckBox();
             this._cwmCheckBox = new System.Windows.Forms.CheckBox();
@@ -62,6 +62,7 @@
             this._editAtletaButton = new System.Windows.Forms.Button();
             this._removeAtletaButton = new System.Windows.Forms.Button();
             this._addAtletaButton = new System.Windows.Forms.Button();
+            this._clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
@@ -82,7 +83,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 600F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -98,10 +99,12 @@
             this._atletiGridView.ReadOnly = true;
             this._atletiGridView.Size = new System.Drawing.Size(300, 594);
             this._atletiGridView.TabIndex = 1;
+            this._atletiGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._atletiGridView_CellClick);
             // 
             // _panelAtleti
             // 
-            this._panelAtleti.Controls.Add(this._femminaRadioButton2);
+            this._panelAtleti.Controls.Add(this._clearButton);
+            this._panelAtleti.Controls.Add(this._femminaRadioButton);
             this._panelAtleti.Controls.Add(this._maschioRadioButton);
             this._panelAtleti.Controls.Add(this._IscrizioneGaraGroupBox);
             this._panelAtleti.Controls.Add(this.label10);
@@ -126,16 +129,16 @@
             this._panelAtleti.Size = new System.Drawing.Size(488, 594);
             this._panelAtleti.TabIndex = 2;
             // 
-            // _femminaRadioButton2
+            // _femminaRadioButton
             // 
-            this._femminaRadioButton2.AutoSize = true;
-            this._femminaRadioButton2.Location = new System.Drawing.Point(150, 309);
-            this._femminaRadioButton2.Name = "_femminaRadioButton2";
-            this._femminaRadioButton2.Size = new System.Drawing.Size(74, 17);
-            this._femminaRadioButton2.TabIndex = 29;
-            this._femminaRadioButton2.TabStop = true;
-            this._femminaRadioButton2.Text = "FEMMINA";
-            this._femminaRadioButton2.UseVisualStyleBackColor = true;
+            this._femminaRadioButton.AutoSize = true;
+            this._femminaRadioButton.Location = new System.Drawing.Point(150, 309);
+            this._femminaRadioButton.Name = "_femminaRadioButton";
+            this._femminaRadioButton.Size = new System.Drawing.Size(74, 17);
+            this._femminaRadioButton.TabIndex = 29;
+            this._femminaRadioButton.TabStop = true;
+            this._femminaRadioButton.Text = "FEMMINA";
+            this._femminaRadioButton.UseVisualStyleBackColor = true;
             // 
             // _maschioRadioButton
             // 
@@ -150,8 +153,8 @@
             // 
             // _IscrizioneGaraGroupBox
             // 
-            this._IscrizioneGaraGroupBox.Controls.Add(this.button2);
-            this._IscrizioneGaraGroupBox.Controls.Add(this.button1);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._rimuoviAtletiDallaGaraButton);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._aggiungiAtletiAllaGaraButton);
             this._IscrizioneGaraGroupBox.Controls.Add(this._camCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._cnfCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._cwmCheckBox);
@@ -169,23 +172,23 @@
             this._IscrizioneGaraGroupBox.TabStop = false;
             this._IscrizioneGaraGroupBox.Text = "Iscrizione Atleti alla Gara";
             // 
-            // button2
+            // _rimuoviAtletiDallaGaraButton
             // 
-            this.button2.Location = new System.Drawing.Point(247, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 40);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Rimuovi Atleta dalla Gara";
-            this.button2.UseVisualStyleBackColor = true;
+            this._rimuoviAtletiDallaGaraButton.Location = new System.Drawing.Point(247, 90);
+            this._rimuoviAtletiDallaGaraButton.Name = "_rimuoviAtletiDallaGaraButton";
+            this._rimuoviAtletiDallaGaraButton.Size = new System.Drawing.Size(142, 40);
+            this._rimuoviAtletiDallaGaraButton.TabIndex = 12;
+            this._rimuoviAtletiDallaGaraButton.Text = "Rimuovi Atleta dalla Gara";
+            this._rimuoviAtletiDallaGaraButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // _aggiungiAtletiAllaGaraButton
             // 
-            this.button1.Location = new System.Drawing.Point(247, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Aggiungi Atleta alla Gara";
-            this.button1.UseVisualStyleBackColor = true;
+            this._aggiungiAtletiAllaGaraButton.Location = new System.Drawing.Point(247, 34);
+            this._aggiungiAtletiAllaGaraButton.Name = "_aggiungiAtletiAllaGaraButton";
+            this._aggiungiAtletiAllaGaraButton.Size = new System.Drawing.Size(142, 40);
+            this._aggiungiAtletiAllaGaraButton.TabIndex = 11;
+            this._aggiungiAtletiAllaGaraButton.Text = "Aggiungi Atleta alla Gara";
+            this._aggiungiAtletiAllaGaraButton.UseVisualStyleBackColor = true;
             // 
             // _camCheckBox
             // 
@@ -403,6 +406,7 @@
             this._editAtletaButton.TabIndex = 9;
             this._editAtletaButton.Text = "Modifica Atleta";
             this._editAtletaButton.UseVisualStyleBackColor = true;
+            this._editAtletaButton.Click += new System.EventHandler(this._editAtletaButton_Click);
             // 
             // _removeAtletaButton
             // 
@@ -412,6 +416,7 @@
             this._removeAtletaButton.TabIndex = 8;
             this._removeAtletaButton.Text = "Rimuovi Atleta";
             this._removeAtletaButton.UseVisualStyleBackColor = true;
+            this._removeAtletaButton.Click += new System.EventHandler(this._removeAtletaButton_Click);
             // 
             // _addAtletaButton
             // 
@@ -422,6 +427,15 @@
             this._addAtletaButton.Text = "Aggiungi Atleta";
             this._addAtletaButton.UseVisualStyleBackColor = true;
             this._addAtletaButton.Click += new System.EventHandler(this._addAtletaButton_Click);
+            // 
+            // _clearButton
+            // 
+            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
+            this._clearButton.Location = new System.Drawing.Point(455, 3);
+            this._clearButton.Name = "_clearButton";
+            this._clearButton.Size = new System.Drawing.Size(30, 30);
+            this._clearButton.TabIndex = 31;
+            this._clearButton.UseVisualStyleBackColor = true;
             // 
             // AtletiUserControl
             // 
@@ -471,10 +485,11 @@
         private System.Windows.Forms.CheckBox _cwfCheckBox;
         private System.Windows.Forms.CheckBox _staCheckBox;
         private System.Windows.Forms.CheckBox _fimCheckBox;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _rimuoviAtletiDallaGaraButton;
+        private System.Windows.Forms.Button _aggiungiAtletiAllaGaraButton;
         private System.Windows.Forms.CheckBox _camCheckBox;
-        private System.Windows.Forms.RadioButton _femminaRadioButton2;
+        private System.Windows.Forms.RadioButton _femminaRadioButton;
         private System.Windows.Forms.RadioButton _maschioRadioButton;
+        private System.Windows.Forms.Button _clearButton;
     }
 }

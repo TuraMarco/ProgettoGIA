@@ -28,6 +28,8 @@ namespace ProgettoGIA.Presenter
         {
             base.OnLoad(e);
             _societàDataGridViewPresenter = new SocietàDataGridViewPresenter(_societàGridView);
+            _societàGridView.Columns["Guid"].Visible = false;
+
         }
 
         private void _addSocietàButton_Click(object sender, EventArgs e)

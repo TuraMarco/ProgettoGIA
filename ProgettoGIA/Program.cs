@@ -42,12 +42,23 @@ namespace ProgettoGIA
             Società s3 = new Società("societa3", "Napoli", Guid.Empty);
             Società s4= new Società("societa4", "Caserta", Guid.Empty);
             Atleta a1 = new Atleta("Marco", "Tura", "TRUMRC91D04G916U", Sesso.MASCHIO, new DateTime(1991, 4, 4), false, s1, new DateTime(2019, 1, 1), Guid.Empty);
-            Atleta a2 = new Atleta("Anna", "Rossi", "TRUMRC91D04G916U", Sesso.FEMMINA, new DateTime(1994, 4, 4), false, s1, new DateTime(2019, 1, 1), Guid.Empty);
-            Atleta a3 = new Atleta("Jon", "Doo", "TRUMRC91D04G916U", Sesso.MASCHIO, new DateTime(2014, 4, 4), false, s1, new DateTime(2017, 1, 1), Guid.Empty);
+            Atleta a2 = new Atleta("Anna", "Rossi", "TRWERC91D04G916U", Sesso.FEMMINA, new DateTime(1945, 6, 7), false, s1, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a3 = new Atleta("Jon", "Doo", "TRUMEQWEW04G916U", Sesso.MASCHIO, new DateTime(1979, 7, 15), false, s2, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a4 = new Atleta("Luca", "Verdi", "TRUMRDFSDF04G916U", Sesso.MASCHIO, new DateTime(1986, 11, 25), true, s2, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a5 = new Atleta("Martina", "Russo", "TRUMRDFSDF04G916U", Sesso.FEMMINA, new DateTime(1985, 7, 24), false, s3, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a6 = new Atleta("Alessio", "Ferrari", "TFDSDFRC91D04G916U", Sesso.MASCHIO, new DateTime(1993, 1, 15), true, s4, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a7 = new Atleta("Giovanni", "Esposito", "TRUDSFSDFD04G916U", Sesso.MASCHIO, new DateTime(1974, 6, 17), false, s3, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a8 = new Atleta("Rosa", "Bianchi", "TRUMRSDFSDF4G916U", Sesso.FEMMINA, new DateTime(1986, 7, 11), true, s2, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a9 = new Atleta("Michele", "Romano", "TRUMRC9CFDS4G916U", Sesso.MASCHIO, new DateTime(1981, 7, 3), false, s1, new DateTime(2019, 1, 1), Guid.Empty);
+            Atleta a10 = new Atleta("Alex", "Colombo", "TRUMRC9145GG916U", Sesso.MASCHIO, new DateTime(1989, 5, 29), false, s4, new DateTime(2019, 1, 1), Guid.Empty);
+
+
+
 
             try
             {
                 DemoAddSocietà(g, s1, s2, s3, s4);
+                DemoAddAtleti(g, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
                 //DemoCreate(g, s, a1, a2, a3);
                 //DemoAmministration(g);
                 //DemoRemove(g, s, a1, a2, a3);
@@ -61,24 +72,35 @@ namespace ProgettoGIA
         private static void DemoAddSocietà(Gara g, Società s1, Società s2, Società s3, Società s4)
         {
             g.AddSocietà(s1);
-            Console.Write("Creata società1\n");
-            g.printSocietà();
-            Console.Write("\n");
 
             g.AddSocietà(s2);
-            Console.Write("Creata società2\n");
-            g.printSocietà();
-            Console.Write("\n");
 
             g.AddSocietà(s3);
-            Console.Write("Creata società3\n");
-            g.printSocietà();
-            Console.Write("\n");
 
             g.AddSocietà(s4);
-            Console.Write("Creata società4\n");
-            g.printSocietà();
-            Console.Write("\n");
+        }
+
+        private static void DemoAddAtleti(Gara g, Atleta a1, Atleta a2, Atleta a3, Atleta a4, Atleta a5, Atleta a6, Atleta a7, Atleta a8, Atleta a9, Atleta a10)
+        {
+            g.AddAtleta(a1);
+
+            g.AddAtleta(a2);
+
+            g.AddAtleta(a3);
+
+            g.AddAtleta(a4);
+
+            g.AddAtleta(a5);
+
+            g.AddAtleta(a6);
+
+            g.AddAtleta(a7);
+
+            g.AddAtleta(a8);
+
+            g.AddAtleta(a9);
+
+            g.AddAtleta(a10);
         }
 
         private static void DemoCreate(Gara g, Società s, Atleta a1, Atleta a2, Atleta a3)
