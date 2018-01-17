@@ -17,7 +17,7 @@ namespace ProgettoGIA.Presenter
             InitializeComponent();
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
 
         }
