@@ -64,30 +64,32 @@ namespace ProgettoGIA.Model
         public bool IsEtàInferiore18()
         {
             //Da testare
-            DateTime dt_18 = new DateTime().AddYears(-18);
+            DateTime temp = _dataDiNascita.AddYears(18);
 
-            if (_dataDiNascita >= dt_18)
+
+            if (temp >= DateTime.Now)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
         public bool IsEtàInferiore14()
-        {            
+        {
             //Da testare
-            DateTime dt_14 = new DateTime().AddYears(-14);
+            DateTime temp = _dataDiNascita.AddYears(14);
+            
 
-            if (_dataDiNascita >= dt_14)
+            if (temp >= DateTime.Now)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
     }

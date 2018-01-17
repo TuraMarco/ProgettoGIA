@@ -16,7 +16,7 @@ namespace ProgettoGIA.Presenter
         {
             if (dataGridView == null)
             {
-                throw new ArgumentNullException("dataGridView");
+                throw new ArgumentNullException("SocietàDataGridView");
             }
             _dataGridView = dataGridView;
         }

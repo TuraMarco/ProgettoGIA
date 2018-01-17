@@ -52,7 +52,7 @@
             this._societàComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this._istruttoreCheckBox = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this._dataNascitaTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this._codiceFiscaleTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -110,7 +110,7 @@
             this._panelAtleti.Controls.Add(this._societàComboBox);
             this._panelAtleti.Controls.Add(this.label8);
             this._panelAtleti.Controls.Add(this._istruttoreCheckBox);
-            this._panelAtleti.Controls.Add(this.dateTimePicker);
+            this._panelAtleti.Controls.Add(this._dataNascitaTimePicker);
             this._panelAtleti.Controls.Add(this.label7);
             this._panelAtleti.Controls.Add(this._codiceFiscaleTextBox);
             this._panelAtleti.Controls.Add(this.label2);
@@ -340,12 +340,12 @@
             this._istruttoreCheckBox.Text = "Istruttore";
             this._istruttoreCheckBox.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker
+            // _dataNascitaTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(150, 205);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker.TabIndex = 20;
+            this._dataNascitaTimePicker.Location = new System.Drawing.Point(150, 205);
+            this._dataNascitaTimePicker.Name = "_dataNascitaTimePicker";
+            this._dataNascitaTimePicker.Size = new System.Drawing.Size(191, 20);
+            this._dataNascitaTimePicker.TabIndex = 20;
             // 
             // label7
             // 
@@ -455,7 +455,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox _codiceFiscaleTextBox;
         private System.Windows.Forms.CheckBox _istruttoreCheckBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.DateTimePicker _dataNascitaTimePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox _societàComboBox;
         private System.Windows.Forms.Label label8;

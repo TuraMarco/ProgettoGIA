@@ -13,6 +13,7 @@ namespace ProgettoGIA.Model
         public string Nome { get => _nome; set => _nome = value; }
         public string Sede { get => _sede; set => _sede = value; }
         public Guid Guid => _guid;
+        
 
         //costruttore
         public Società(string nome, string sede, Guid guid)
@@ -28,6 +29,11 @@ namespace ProgettoGIA.Model
             {
                 _guid = guid;
             }
+        }
+
+        public override string ToString()
+        {
+            return _nome + " - " + _sede;
         }
     }
 }

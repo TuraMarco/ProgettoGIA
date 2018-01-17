@@ -237,6 +237,19 @@ namespace ProgettoGIA.Model
             return null;
         }
 
+        public Società GetSocietàForNomeSede(string nomeSede)
+        {
+            foreach (Società s in _società)
+            {
+                if (nomeSede.Equals(s.ToString()))
+                {
+                    return s;
+                }
+            }
+
+            return null;
+        }
+
         #endregion
         #region Metodi di Utlità
 

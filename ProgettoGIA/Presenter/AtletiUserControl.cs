@@ -26,30 +26,30 @@ namespace ProgettoGIA.Presenter
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            _maschioRadioButton.Enabled = true;
             _atletaDataGridViewPresenter = new AtletaDataGridViewPresenter(_atletiGridView);
             _societàComboBox.Items.Add("");
             foreach (Società s in Gara.GetInstance().Società)
             {
-                _societàComboBox.Items.Add(s.Nome + " - " + s.Sede);
+                _societàComboBox.Items.Add(s);
             }
             _societàComboBox.SelectedIndex = 0;
         }
 
         private void _addAtletaButton_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(_nomeTextBox.Text) || String.IsNullOrEmpty(_cognomeTextBox.Text) || String.IsNullOrEmpty(_societàComboBox.SelectedText) || String.IsNullOrEmpty(_codiceFiscaleTextBox.Text))
+            if (!String.IsNullOrEmpty(_nomeTextBox.Text) || !String.IsNullOrEmpty(_cognomeTextBox.Text) || !String.IsNullOrEmpty(((Società)_societàComboBox.SelectedItem).ToString()) || !String.IsNullOrEmpty(_codiceFiscaleTextBox.Text))
             {
                 Atleta a;
-                Società s = Gara.GetInstance().Società[_societàComboBox.SelectedIndex++];
-                Console.Write(s.Nome + " - " + s.Sede);
+                Società s = Gara.GetInstance().GetSocietàForNomeSede(((Società)_societàComboBox.SelectedItem).ToString()); //porcata!!!!
 
                 if (_maschioRadioButton.Enabled)
                 {
-                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.MASCHIO, _nascitaTimePicker.Value, _istruttoreCheckBox.Enabled, (Società)_societàComboBox.SelectedItem, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
+                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.MASCHIO, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Enabled, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
                 }
                 else
                 {
-                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.FEMMINA, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Enabled, (Società)_societàComboBox.SelectedItem, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
+                    a = new Atleta(_nomeTextBox.Text, _cognomeTextBox.Text, _codiceFiscaleTextBox.Text, Sesso.FEMMINA, _dataNascitaTimePicker.Value, _istruttoreCheckBox.Enabled, s, _scadenzaCertificatoTimePicker.Value, Guid.Empty);
                 }
 
                 if (a.IsEtàInferiore14())
@@ -67,15 +67,20 @@ namespace ProgettoGIA.Presenter
                     Gara g = Gara.GetInstance();
                     g.AddAtleta(a);
                 }
-
-                
-                
             }
+            else
+            {
+                return;
+            }
+
             _nomeTextBox.Clear();
             _cognomeTextBox.Clear();
             _codiceFiscaleTextBox.Clear();
             _societàComboBox.SelectedIndex = 0;
-            //.....
+            _dataNascitaTimePicker.Value = DateTime.Now;
+            _scadenzaCertificatoTimePicker.Value = DateTime.Now;
+            _maschioRadioButton.Enabled = true;
+            _istruttoreCheckBox.Enabled = false;
         }
     }
 }

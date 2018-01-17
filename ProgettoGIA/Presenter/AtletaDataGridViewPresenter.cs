@@ -1,14 +1,31 @@
-﻿using System.Windows.Forms;
+﻿using ProgettoGIA.Model;
+using System;
+using System.Windows.Forms;
 
 namespace ProgettoGIA.Presenter
 {
-    internal class AtletaDataGridViewPresenter
+    internal class AtletaDataGridViewPresenter : Presenter<DataGridView>
     {
-        private DataGridView _atletiGridView;
+        private readonly DataGridView _dataGridView;
 
-        public AtletaDataGridViewPresenter(DataGridView atletiGridView)
+        public AtletaDataGridViewPresenter(DataGridView atletiGridView) : base(atletiGridView)
         {
-            _atletiGridView = atletiGridView;
+            if (atletiGridView == null)
+            {
+                throw new ArgumentNullException("AtletiDataGridView");
+            }
+            _dataGridView = atletiGridView;
+        }
+
+        protected override void InitializeControl()
+        {
+            Control.DataSource = Gara.GetInstance().Atleti;
+        }
+
+        protected override void RefreshControl()
+        {
+            Control.DataSource = null;
+            Control.DataSource = Gara.GetInstance().Società;
         }
     }
 }
