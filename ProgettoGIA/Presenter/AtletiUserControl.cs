@@ -15,6 +15,7 @@ namespace ProgettoGIA.Presenter
     {
         Guid _guidAtletaSelezionata;
         AtletaDataGridViewPresenter _atletaDataGridViewPresenter;
+        Dictionary<CheckBox, Disciplina> _dictionariDiscipline; 
 
         public AtletiUserControl()
         {
@@ -36,6 +37,22 @@ namespace ProgettoGIA.Presenter
             _societàComboBox.SelectedIndex = 0;
 
             _atletiGridView.Columns["Guid"].Visible = false;
+
+            _dictionariDiscipline = new Dictionary<CheckBox, Disciplina>();
+            _dictionariDiscipline.Add(_cnfCheckBox, Disciplina.CNF);
+            _dictionariDiscipline.Add(_cwmCheckBox, Disciplina.CWM);
+            _dictionariDiscipline.Add(_fioCheckBox, Disciplina.FIO);
+            _dictionariDiscipline.Add(_dymCheckBox, Disciplina.DYM);
+            _dictionariDiscipline.Add(_dnfCheckBox, Disciplina.DNF);
+            _dictionariDiscipline.Add(_dynCheckBox, Disciplina.DYN);
+            _dictionariDiscipline.Add(_cwfCheckBox, Disciplina.CNF);
+            _dictionariDiscipline.Add(_staCheckBox, Disciplina.CNF);
+            _dictionariDiscipline.Add(_fimCheckBox, Disciplina.CNF);
+            _dictionariDiscipline.Add(_camCheckBox, Disciplina.CNF);
+
+
+
+
 
         }
 
@@ -105,7 +122,33 @@ namespace ProgettoGIA.Presenter
 
         private void _editAtletaButton_Click(object sender, EventArgs e)
         {
+            Atleta a = Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata);
 
+            a.Nome = _nomeTextBox.Text;
+            a.Cognome = _cognomeTextBox.Text;
+            a.CodiceFiscale = _codiceFiscaleTextBox.Text;
+
+            if (_maschioRadioButton.Checked)
+            {
+                a.Sesso = Sesso.MASCHIO;
+            }
+            else
+            {
+                a.Sesso = Sesso.FEMMINA;
+            }
+            a.DataDiNascita = _dataNascitaTimePicker.Value;
+            a.Istruttore = _istruttoreCheckBox.Checked;
+            a.Società = (Società)_societàComboBox.SelectedItem;
+            a.ScadenzaCertificato = _scadenzaCertificatoTimePicker.Value;
+
+            _nomeTextBox.Clear();
+            _cognomeTextBox.Clear();
+            _codiceFiscaleTextBox.Clear();
+            _societàComboBox.SelectedIndex = 0;
+            _dataNascitaTimePicker.Value = DateTime.Now;
+            _scadenzaCertificatoTimePicker.Value = DateTime.Now;
+            _maschioRadioButton.Select();
+            _istruttoreCheckBox.Checked = false;
         }
 
         private void _atletiGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,6 +188,17 @@ namespace ProgettoGIA.Presenter
             _scadenzaCertificatoTimePicker.Value = DateTime.Now;
             _maschioRadioButton.Select();
             _istruttoreCheckBox.Checked = false;
+        }
+
+        private void _aggiungiAtletiAllaGaraButton_Click(object sender, EventArgs e)
+        {
+             
+             
+        }
+
+        private void _rimuoviAtletiDallaGaraButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

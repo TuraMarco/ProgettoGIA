@@ -25,7 +25,8 @@ namespace ProgettoGIA.Presenter
         protected override void RefreshControl()
         {
             Control.DataSource = null;
-            Control.DataSource = Gara.GetInstance().Società;
+            Control.DataSource = Gara.GetInstance().Atleti;
+            _dataGridView.Columns["Guid"].Visible = false;
         }
     }
 }

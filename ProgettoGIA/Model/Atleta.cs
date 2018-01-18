@@ -6,38 +6,37 @@ namespace ProgettoGIA.Model
     {
         //campi
         private readonly Guid _guid;
-        private readonly string _nome;
-        private readonly string _cognome;
-        private readonly string _codiceFiscale;
-        private readonly Sesso _sesso;
-        private readonly DateTime _dataDiNascita;
-        private readonly bool _istruttore;
-        private readonly Società _società;
-        private readonly DateTime _scadenzaCertificato;
+        private string _nome;
+        private string _cognome;
+        private string _codiceFiscale;
+        private Sesso _sesso;
+        private DateTime _dataDiNascita;
+        private bool _istruttore;
+        private Società _società;
+        private DateTime _scadenzaCertificato;
 
         //property
         public Guid Guid => _guid;
-        public string Nome => _nome;
-        public string Cognome => _cognome;
-        public string CF => _codiceFiscale;
-        public Sesso Sesso => _sesso;
-        public DateTime DataDiNascita => _dataDiNascita;
-        public bool Istruttore => _istruttore;
-        public Società SocietàDiAppeartenenza => _società;
-        public DateTime ScadenzaCertificato => _scadenzaCertificato;
-        
+        public string Nome { get => _nome; set => _nome = value; }
+        public string Cognome { get => _cognome; set => _cognome = value; }
+        public string CodiceFiscale { get => _codiceFiscale; set => _codiceFiscale = value; }
+        public Sesso Sesso { get => _sesso; set => _sesso = value; }
+        public DateTime DataDiNascita { get => _dataDiNascita; set => _dataDiNascita = value; }
+        public bool Istruttore { get => _istruttore; set => _istruttore = value; }
+        public Società Società { get => _società; set => _società = value; }
+        public DateTime ScadenzaCertificato { get => _scadenzaCertificato; set => _scadenzaCertificato = value; }
 
         //costruttore
         public Atleta(string nome, string cognome, string codiceFiscale, Sesso sesso, DateTime dataDiNascita, bool istruttore, Società società, DateTime scadenzaCertificato, Guid guid)
         {
-            _nome = nome;
-            _cognome = cognome;
-            _codiceFiscale = codiceFiscale;
-            _sesso = sesso;
-            _dataDiNascita = dataDiNascita;
-            _istruttore = istruttore;
-            _società = società;
-            _scadenzaCertificato = scadenzaCertificato;
+            Nome = nome;
+            Cognome = cognome;
+            CodiceFiscale = codiceFiscale;
+            Sesso = sesso;
+            DataDiNascita = dataDiNascita;
+            Istruttore = istruttore;
+            Società = società;
+            ScadenzaCertificato = scadenzaCertificato;
 
             if (Guid == Guid.Empty)
             {
@@ -51,7 +50,7 @@ namespace ProgettoGIA.Model
 
         public bool IsCertificatoValido()
         {
-            if (_scadenzaCertificato.Millisecond >= new DateTime().Millisecond)
+            if (ScadenzaCertificato.Millisecond >= new DateTime().Millisecond)
             {
                 return false;
             }
@@ -64,7 +63,7 @@ namespace ProgettoGIA.Model
         public bool IsEtàInferiore18()
         {
             //Da testare
-            DateTime temp = _dataDiNascita.AddYears(18);
+            DateTime temp = DataDiNascita.AddYears(18);
 
 
             if (temp >= DateTime.Now)
@@ -80,7 +79,7 @@ namespace ProgettoGIA.Model
         public bool IsEtàInferiore14()
         {
             //Da testare
-            DateTime temp = _dataDiNascita.AddYears(14);
+            DateTime temp = DataDiNascita.AddYears(14);
             
 
             if (temp >= DateTime.Now)

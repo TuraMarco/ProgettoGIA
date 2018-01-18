@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Codice generato da Progettazione componenti
 
         /// <summary> 
@@ -43,7 +44,7 @@
             this._fioCheckBox = new System.Windows.Forms.CheckBox();
             this._dymCheckBox = new System.Windows.Forms.CheckBox();
             this._dnfCheckBox = new System.Windows.Forms.CheckBox();
-            this._dynCheckBox5 = new System.Windows.Forms.CheckBox();
+            this._dynCheckBox = new System.Windows.Forms.CheckBox();
             this._cwfCheckBox = new System.Windows.Forms.CheckBox();
             this._staCheckBox = new System.Windows.Forms.CheckBox();
             this._fimCheckBox = new System.Windows.Forms.CheckBox();
@@ -171,7 +172,7 @@
             this._IscrizioneGaraGroupBox.Controls.Add(this._fioCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._dymCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._dnfCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._dynCheckBox5);
+            this._IscrizioneGaraGroupBox.Controls.Add(this._dynCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._cwfCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._staCheckBox);
             this._IscrizioneGaraGroupBox.Controls.Add(this._fimCheckBox);
@@ -190,6 +191,7 @@
             this._rimuoviAtletiDallaGaraButton.TabIndex = 12;
             this._rimuoviAtletiDallaGaraButton.Text = "Rimuovi Atleta dalla Gara";
             this._rimuoviAtletiDallaGaraButton.UseVisualStyleBackColor = true;
+            this._rimuoviAtletiDallaGaraButton.Click += new System.EventHandler(this._rimuoviAtletiDallaGaraButton_Click);
             // 
             // _aggiungiAtletiAllaGaraButton
             // 
@@ -199,6 +201,7 @@
             this._aggiungiAtletiAllaGaraButton.TabIndex = 11;
             this._aggiungiAtletiAllaGaraButton.Text = "Aggiungi Atleta alla Gara";
             this._aggiungiAtletiAllaGaraButton.UseVisualStyleBackColor = true;
+            this._aggiungiAtletiAllaGaraButton.Click += new System.EventHandler(this._aggiungiAtletiAllaGaraButton_Click);
             // 
             // _camCheckBox
             // 
@@ -260,15 +263,15 @@
             this._dnfCheckBox.Text = "DNF";
             this._dnfCheckBox.UseVisualStyleBackColor = true;
             // 
-            // _dynCheckBox5
+            // _dynCheckBox
             // 
-            this._dynCheckBox5.AutoSize = true;
-            this._dynCheckBox5.Location = new System.Drawing.Point(27, 57);
-            this._dynCheckBox5.Name = "_dynCheckBox5";
-            this._dynCheckBox5.Size = new System.Drawing.Size(49, 17);
-            this._dynCheckBox5.TabIndex = 3;
-            this._dynCheckBox5.Text = "DYN";
-            this._dynCheckBox5.UseVisualStyleBackColor = true;
+            this._dynCheckBox.AutoSize = true;
+            this._dynCheckBox.Location = new System.Drawing.Point(27, 57);
+            this._dynCheckBox.Name = "_dynCheckBox";
+            this._dynCheckBox.Size = new System.Drawing.Size(49, 17);
+            this._dynCheckBox.TabIndex = 3;
+            this._dynCheckBox.Text = "DYN";
+            this._dynCheckBox.UseVisualStyleBackColor = true;
             // 
             // _cwfCheckBox
             // 
@@ -482,7 +485,7 @@
         private System.Windows.Forms.CheckBox _fioCheckBox;
         private System.Windows.Forms.CheckBox _dymCheckBox;
         private System.Windows.Forms.CheckBox _dnfCheckBox;
-        private System.Windows.Forms.CheckBox _dynCheckBox5;
+        private System.Windows.Forms.CheckBox _dynCheckBox;
         private System.Windows.Forms.CheckBox _cwfCheckBox;
         private System.Windows.Forms.CheckBox _staCheckBox;
         private System.Windows.Forms.CheckBox _fimCheckBox;

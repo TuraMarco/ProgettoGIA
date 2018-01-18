@@ -301,7 +301,7 @@ namespace ProgettoGIA.Model
 
             foreach (Atleta a in Atleti)
             {
-                if (a.SocietàDiAppeartenenza.Guid.Equals(societa.Guid))
+                if (a.Società.Guid.Equals(societa.Guid))
                 {
                     possiede = true;
                 }
