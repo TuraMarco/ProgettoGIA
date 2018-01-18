@@ -36,8 +36,8 @@
             this._femminaRadioButton = new System.Windows.Forms.RadioButton();
             this._maschioRadioButton = new System.Windows.Forms.RadioButton();
             this._iscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
-            this._rimuoviAtletiDallaGaraButton = new System.Windows.Forms.Button();
-            this._aggiungiAtletiAllaGaraButton = new System.Windows.Forms.Button();
+            this._rimuoviAtletaDallaGaraButton = new System.Windows.Forms.Button();
+            this._aggiungiAtletaAllaGaraButton = new System.Windows.Forms.Button();
             this._camCheckBox = new System.Windows.Forms.CheckBox();
             this._cnfCheckBox = new System.Windows.Forms.CheckBox();
             this._cwmCheckBox = new System.Windows.Forms.CheckBox();
@@ -164,8 +164,8 @@
             // 
             // _iscrizioneGaraGroupBox
             // 
-            this._iscrizioneGaraGroupBox.Controls.Add(this._rimuoviAtletiDallaGaraButton);
-            this._iscrizioneGaraGroupBox.Controls.Add(this._aggiungiAtletiAllaGaraButton);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._rimuoviAtletaDallaGaraButton);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._aggiungiAtletaAllaGaraButton);
             this._iscrizioneGaraGroupBox.Controls.Add(this._camCheckBox);
             this._iscrizioneGaraGroupBox.Controls.Add(this._cnfCheckBox);
             this._iscrizioneGaraGroupBox.Controls.Add(this._cwmCheckBox);
@@ -183,25 +183,25 @@
             this._iscrizioneGaraGroupBox.TabStop = false;
             this._iscrizioneGaraGroupBox.Text = "Iscrizione Atleti alla Gara";
             // 
-            // _rimuoviAtletiDallaGaraButton
+            // _rimuoviAtletaDallaGaraButton
             // 
-            this._rimuoviAtletiDallaGaraButton.Location = new System.Drawing.Point(247, 90);
-            this._rimuoviAtletiDallaGaraButton.Name = "_rimuoviAtletiDallaGaraButton";
-            this._rimuoviAtletiDallaGaraButton.Size = new System.Drawing.Size(142, 40);
-            this._rimuoviAtletiDallaGaraButton.TabIndex = 12;
-            this._rimuoviAtletiDallaGaraButton.Text = "Rimuovi Atleta dalla Gara";
-            this._rimuoviAtletiDallaGaraButton.UseVisualStyleBackColor = true;
-            this._rimuoviAtletiDallaGaraButton.Click += new System.EventHandler(this._rimuoviAtletiDallaGaraButton_Click);
+            this._rimuoviAtletaDallaGaraButton.Location = new System.Drawing.Point(247, 90);
+            this._rimuoviAtletaDallaGaraButton.Name = "_rimuoviAtletaDallaGaraButton";
+            this._rimuoviAtletaDallaGaraButton.Size = new System.Drawing.Size(142, 40);
+            this._rimuoviAtletaDallaGaraButton.TabIndex = 12;
+            this._rimuoviAtletaDallaGaraButton.Text = "Rimuovi Atleta dalla Gara";
+            this._rimuoviAtletaDallaGaraButton.UseVisualStyleBackColor = true;
+            this._rimuoviAtletaDallaGaraButton.Click += new System.EventHandler(this._rimuoviAtletiDallaGaraButton_Click);
             // 
-            // _aggiungiAtletiAllaGaraButton
+            // _aggiungiAtletaAllaGaraButton
             // 
-            this._aggiungiAtletiAllaGaraButton.Location = new System.Drawing.Point(247, 34);
-            this._aggiungiAtletiAllaGaraButton.Name = "_aggiungiAtletiAllaGaraButton";
-            this._aggiungiAtletiAllaGaraButton.Size = new System.Drawing.Size(142, 40);
-            this._aggiungiAtletiAllaGaraButton.TabIndex = 11;
-            this._aggiungiAtletiAllaGaraButton.Text = "Aggiungi Atleta alla Gara";
-            this._aggiungiAtletiAllaGaraButton.UseVisualStyleBackColor = true;
-            this._aggiungiAtletiAllaGaraButton.Click += new System.EventHandler(this._aggiungiAtletiAllaGaraButton_Click);
+            this._aggiungiAtletaAllaGaraButton.Location = new System.Drawing.Point(247, 34);
+            this._aggiungiAtletaAllaGaraButton.Name = "_aggiungiAtletaAllaGaraButton";
+            this._aggiungiAtletaAllaGaraButton.Size = new System.Drawing.Size(142, 40);
+            this._aggiungiAtletaAllaGaraButton.TabIndex = 11;
+            this._aggiungiAtletaAllaGaraButton.Text = "Aggiungi Atleta alla Gara";
+            this._aggiungiAtletaAllaGaraButton.UseVisualStyleBackColor = true;
+            this._aggiungiAtletaAllaGaraButton.Click += new System.EventHandler(this._aggiungiAtletiAllaGaraButton_Click);
             // 
             // _camCheckBox
             // 
@@ -489,8 +489,8 @@
         private System.Windows.Forms.CheckBox _cwfCheckBox;
         private System.Windows.Forms.CheckBox _staCheckBox;
         private System.Windows.Forms.CheckBox _fimCheckBox;
-        private System.Windows.Forms.Button _rimuoviAtletiDallaGaraButton;
-        private System.Windows.Forms.Button _aggiungiAtletiAllaGaraButton;
+        private System.Windows.Forms.Button _rimuoviAtletaDallaGaraButton;
+        private System.Windows.Forms.Button _aggiungiAtletaAllaGaraButton;
         private System.Windows.Forms.CheckBox _camCheckBox;
         private System.Windows.Forms.RadioButton _femminaRadioButton;
         private System.Windows.Forms.RadioButton _maschioRadioButton;

@@ -218,8 +218,20 @@ namespace ProgettoGIA.Presenter
 
         private void _aggiungiAtletiAllaGaraButton_Click(object sender, EventArgs e)
         {
-             if()
-             
+            List<Disciplina> temp = new List<Disciplina>();
+
+            if (_guidAtletaSelezionata != null)
+            {
+                foreach (KeyValuePair<Disciplina, CheckBox> kvp in _dictionariDiscipline )
+                {
+                    if (kvp.Value.Checked)
+                    {
+                        temp.Add(kvp.Key);
+                    }
+                }
+            }
+
+            Gara.GetInstance().AddAtletaToGara(Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata), temp); 
         }
 
         private void _rimuoviAtletiDallaGaraButton_Click(object sender, EventArgs e)
