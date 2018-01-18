@@ -30,6 +30,7 @@ namespace ProgettoGIA.Presenter
         {
             Control.DataSource = null;
             Control.DataSource = Gara.GetInstance().Società;
+            _dataGridView.Columns["Guid"].Visible = false;
         }
     }
 }

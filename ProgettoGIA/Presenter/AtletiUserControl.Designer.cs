@@ -35,7 +35,7 @@
             this._clearButton = new System.Windows.Forms.Button();
             this._femminaRadioButton = new System.Windows.Forms.RadioButton();
             this._maschioRadioButton = new System.Windows.Forms.RadioButton();
-            this._IscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
+            this._iscrizioneGaraGroupBox = new System.Windows.Forms.GroupBox();
             this._rimuoviAtletiDallaGaraButton = new System.Windows.Forms.Button();
             this._aggiungiAtletiAllaGaraButton = new System.Windows.Forms.Button();
             this._camCheckBox = new System.Windows.Forms.CheckBox();
@@ -67,7 +67,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).BeginInit();
             this._panelAtleti.SuspendLayout();
-            this._IscrizioneGaraGroupBox.SuspendLayout();
+            this._iscrizioneGaraGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -107,7 +107,7 @@
             this._panelAtleti.Controls.Add(this._clearButton);
             this._panelAtleti.Controls.Add(this._femminaRadioButton);
             this._panelAtleti.Controls.Add(this._maschioRadioButton);
-            this._panelAtleti.Controls.Add(this._IscrizioneGaraGroupBox);
+            this._panelAtleti.Controls.Add(this._iscrizioneGaraGroupBox);
             this._panelAtleti.Controls.Add(this.label10);
             this._panelAtleti.Controls.Add(this._scadenzaCertificatoTimePicker);
             this._panelAtleti.Controls.Add(this.label9);
@@ -162,26 +162,26 @@
             this._maschioRadioButton.Text = "MASCHIO";
             this._maschioRadioButton.UseVisualStyleBackColor = true;
             // 
-            // _IscrizioneGaraGroupBox
+            // _iscrizioneGaraGroupBox
             // 
-            this._IscrizioneGaraGroupBox.Controls.Add(this._rimuoviAtletiDallaGaraButton);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._aggiungiAtletiAllaGaraButton);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._camCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._cnfCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._cwmCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._fioCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._dymCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._dnfCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._dynCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._cwfCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._staCheckBox);
-            this._IscrizioneGaraGroupBox.Controls.Add(this._fimCheckBox);
-            this._IscrizioneGaraGroupBox.Location = new System.Drawing.Point(24, 384);
-            this._IscrizioneGaraGroupBox.Name = "_IscrizioneGaraGroupBox";
-            this._IscrizioneGaraGroupBox.Size = new System.Drawing.Size(416, 180);
-            this._IscrizioneGaraGroupBox.TabIndex = 27;
-            this._IscrizioneGaraGroupBox.TabStop = false;
-            this._IscrizioneGaraGroupBox.Text = "Iscrizione Atleti alla Gara";
+            this._iscrizioneGaraGroupBox.Controls.Add(this._rimuoviAtletiDallaGaraButton);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._aggiungiAtletiAllaGaraButton);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._camCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._cnfCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._cwmCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._fioCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._dymCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._dnfCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._dynCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._cwfCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._staCheckBox);
+            this._iscrizioneGaraGroupBox.Controls.Add(this._fimCheckBox);
+            this._iscrizioneGaraGroupBox.Location = new System.Drawing.Point(24, 384);
+            this._iscrizioneGaraGroupBox.Name = "_iscrizioneGaraGroupBox";
+            this._iscrizioneGaraGroupBox.Size = new System.Drawing.Size(416, 180);
+            this._iscrizioneGaraGroupBox.TabIndex = 27;
+            this._iscrizioneGaraGroupBox.TabStop = false;
+            this._iscrizioneGaraGroupBox.Text = "Iscrizione Atleti alla Gara";
             // 
             // _rimuoviAtletiDallaGaraButton
             // 
@@ -452,8 +452,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._atletiGridView)).EndInit();
             this._panelAtleti.ResumeLayout(false);
             this._panelAtleti.PerformLayout();
-            this._IscrizioneGaraGroupBox.ResumeLayout(false);
-            this._IscrizioneGaraGroupBox.PerformLayout();
+            this._iscrizioneGaraGroupBox.ResumeLayout(false);
+            this._iscrizioneGaraGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -479,7 +479,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker _scadenzaCertificatoTimePicker;
-        private System.Windows.Forms.GroupBox _IscrizioneGaraGroupBox;
+        private System.Windows.Forms.GroupBox _iscrizioneGaraGroupBox;
         private System.Windows.Forms.CheckBox _cnfCheckBox;
         private System.Windows.Forms.CheckBox _cwmCheckBox;
         private System.Windows.Forms.CheckBox _fioCheckBox;

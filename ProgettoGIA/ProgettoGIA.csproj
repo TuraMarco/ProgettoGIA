@@ -76,6 +76,7 @@
     <Compile Include="Presenter\AtletiUserControl.Designer.cs">
       <DependentUpon>AtletiUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\GaraDataGridViewPresenter.cs" />
     <Compile Include="Presenter\GaraUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presenter\AtletiUserControl.resx">
       <DependentUpon>AtletiUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presenter\GaraUserControl.resx">
+      <DependentUpon>GaraUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presenter\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

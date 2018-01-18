@@ -22,19 +22,18 @@ namespace ProgettoGIA.Presenter
             InitializeComponent();
         }
 
-        public DataGridView SocietàDataGrid => _societàGridView;
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             _societàDataGridViewPresenter = new SocietàDataGridViewPresenter(_societàGridView);
+            _societàGridView.CurrentCell = null;
             _societàGridView.Columns["Guid"].Visible = false;
 
         }
 
         private void _addSocietàButton_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(_nomeSocietàTextBox.Text) || String.IsNullOrEmpty(_sedeSocietàTextBox.Text))
+            if(!String.IsNullOrEmpty(_nomeSocietàTextBox.Text) || !String.IsNullOrEmpty(_sedeSocietàTextBox.Text))
             {
                 Gara g = Gara.GetInstance();
                 g.AddSocietà(new Società(_nomeSocietàTextBox.Text, _sedeSocietàTextBox.Text, Guid.Empty));
@@ -45,6 +44,12 @@ namespace ProgettoGIA.Presenter
 
         private void _removeSocietàButton_Click(object sender, EventArgs e)
         {
+            if (_societàGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Si sta tentando di eliminare una società senza che sia selezionata, ritenta.", "Nessuna società selezionata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Società s = Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata);
             if (Gara.GetInstance().SocietàPossiedeAtleti(s))
             {
@@ -52,18 +57,29 @@ namespace ProgettoGIA.Presenter
                 return;
             }
             Gara.GetInstance().RemoveSocietà(s);
+
             _nomeSocietàTextBox.Clear();
             _sedeSocietàTextBox.Clear();
+
+            _societàGridView.CurrentCell = null;
         }
 
         private void _editSocietàButton_Click(object sender, EventArgs e)
         {
+            if (_societàGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Si sta tentando di editare una società senza che sia selezionata, ritenta.", "Nessuna società selezionata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Società s = Gara.GetInstance().GetSocietàForID(_guidSocietàSelezionata);
             s.Nome = _nomeSocietàTextBox.Text;
             s.Sede = _sedeSocietàTextBox.Text;
 
             _nomeSocietàTextBox.Clear();
             _sedeSocietàTextBox.Clear();
+
+            _societàGridView.CurrentCell = null;
         }
 
         private void _societàGridView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -148,6 +148,19 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
+        public SpecialitàGara GetSpecialitàGaraForDisciplina(Disciplina d)
+        {
+            foreach (SpecialitàGara s in _specialitàGara)
+            {
+                if (s.Disciplina.Equals(d))
+                {
+                    return s;
+                }
+            }
+
+            return null;
+        }
+
         //atleta-----------------------------------------------------------------------------------------
         public void AddAtleta(Atleta atleta)
         {
@@ -301,6 +314,7 @@ namespace ProgettoGIA.Model
 
             foreach (Atleta a in Atleti)
             {
+                
                 if (a.Società.Guid.Equals(societa.Guid))
                 {
                     possiede = true;

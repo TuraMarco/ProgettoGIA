@@ -15,14 +15,16 @@ namespace ProgettoGIA.Presenter
     {
         Guid _guidAtletaSelezionata;
         AtletaDataGridViewPresenter _atletaDataGridViewPresenter;
-        Dictionary<CheckBox, Disciplina> _dictionariDiscipline; 
+        Dictionary<Disciplina, CheckBox> _dictionariDiscipline; 
 
         public AtletiUserControl()
         {
             InitializeComponent();
         }
 
+        //properti
         public DataGridView AtletaDataGrid => _atletiGridView;
+        public Dictionary<Disciplina, CheckBox> DizionarioCheckBoxDiscipline => _dictionariDiscipline;
 
         protected override void OnLoad(EventArgs e)
         {
@@ -38,22 +40,27 @@ namespace ProgettoGIA.Presenter
 
             _atletiGridView.Columns["Guid"].Visible = false;
 
-            _dictionariDiscipline = new Dictionary<CheckBox, Disciplina>();
-            _dictionariDiscipline.Add(_cnfCheckBox, Disciplina.CNF);
-            _dictionariDiscipline.Add(_cwmCheckBox, Disciplina.CWM);
-            _dictionariDiscipline.Add(_fioCheckBox, Disciplina.FIO);
-            _dictionariDiscipline.Add(_dymCheckBox, Disciplina.DYM);
-            _dictionariDiscipline.Add(_dnfCheckBox, Disciplina.DNF);
-            _dictionariDiscipline.Add(_dynCheckBox, Disciplina.DYN);
-            _dictionariDiscipline.Add(_cwfCheckBox, Disciplina.CNF);
-            _dictionariDiscipline.Add(_staCheckBox, Disciplina.CNF);
-            _dictionariDiscipline.Add(_fimCheckBox, Disciplina.CNF);
-            _dictionariDiscipline.Add(_camCheckBox, Disciplina.CNF);
+            _dictionariDiscipline = new Dictionary<Disciplina, CheckBox>();
+            _dictionariDiscipline.Add(Disciplina.CNF, _cnfCheckBox);
+            _dictionariDiscipline.Add(Disciplina.CWM, _cwmCheckBox);
+            _dictionariDiscipline.Add(Disciplina.FIO, _fioCheckBox);
+            _dictionariDiscipline.Add(Disciplina.DYM, _dymCheckBox);
+            _dictionariDiscipline.Add(Disciplina.DNF, _dnfCheckBox);
+            _dictionariDiscipline.Add(Disciplina.DYN, _dynCheckBox);
+            _dictionariDiscipline.Add(Disciplina.CWF, _cwfCheckBox);
+            _dictionariDiscipline.Add(Disciplina.STA, _staCheckBox);
+            _dictionariDiscipline.Add(Disciplina.FIM, _fimCheckBox);
+            _dictionariDiscipline.Add(Disciplina.CAM, _camCheckBox);
 
+            foreach (KeyValuePair<Disciplina, CheckBox> kvp in _dictionariDiscipline)
+            {
+                kvp.Value.Enabled = false;
+            }
 
+            _iscrizioneGaraGroupBox.Enabled = false;
+            _atletiGridView.CurrentCell = null;
 
-
-
+            Gara.GetInstance().Changed += RefreshCheckBoxList;
         }
 
         private void _addAtletaButton_Click(object sender, EventArgs e)
@@ -106,6 +113,12 @@ namespace ProgettoGIA.Presenter
 
         private void _removeAtletaButton_Click(object sender, EventArgs e)
         {
+            if (_atletiGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Si sta tentando di eliminare un atleta senza che sia selezionata, ritenta.", "Nessun atleta selezionata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Atleta a = Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata);
 
             Gara.GetInstance().RemoveAtleta(a);
@@ -118,10 +131,18 @@ namespace ProgettoGIA.Presenter
             _scadenzaCertificatoTimePicker.Value = DateTime.Now;
             _maschioRadioButton.Select();
             _istruttoreCheckBox.Checked = false;
+
+            _atletiGridView.CurrentCell = null;
         }
 
         private void _editAtletaButton_Click(object sender, EventArgs e)
         {
+            if (_atletiGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Si sta tentando di editare un atleta senza che sia selezionata, ritenta.", "Nessun atleta selezionata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Atleta a = Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata);
 
             a.Nome = _nomeTextBox.Text;
@@ -149,6 +170,8 @@ namespace ProgettoGIA.Presenter
             _scadenzaCertificatoTimePicker.Value = DateTime.Now;
             _maschioRadioButton.Select();
             _istruttoreCheckBox.Checked = false;
+
+            _atletiGridView.CurrentCell = null;
         }
 
         private void _atletiGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -175,6 +198,8 @@ namespace ProgettoGIA.Presenter
                 _istruttoreCheckBox.Checked = (bool)row.Cells[6].Value;
                 _societàComboBox.SelectedItem = (Società)row.Cells[7].Value;
                 _scadenzaCertificatoTimePicker.Value = (DateTime)row.Cells[8].Value;
+
+                if (_guidAtletaSelezionata != null) { _iscrizioneGaraGroupBox.Enabled = true; }
             }
         }
 
@@ -188,17 +213,33 @@ namespace ProgettoGIA.Presenter
             _scadenzaCertificatoTimePicker.Value = DateTime.Now;
             _maschioRadioButton.Select();
             _istruttoreCheckBox.Checked = false;
+            _iscrizioneGaraGroupBox.Enabled = false;
         }
 
         private void _aggiungiAtletiAllaGaraButton_Click(object sender, EventArgs e)
         {
-             
+             if()
              
         }
 
         private void _rimuoviAtletiDallaGaraButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshCheckBoxList(object sender, EventArgs e)
+        {
+            foreach (KeyValuePair<Disciplina, CheckBox> kvp in _dictionariDiscipline)
+            {
+                if (Gara.GetInstance().GetSpecialitàGaraForDisciplina(kvp.Key) != null)
+                {
+                    kvp.Value.Enabled = true;
+                }
+                else
+                {
+                    kvp.Value.Enabled = false;
+                }
+            }
         }
     }
 }
