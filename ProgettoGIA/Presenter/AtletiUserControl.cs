@@ -236,7 +236,10 @@ namespace ProgettoGIA.Presenter
 
         private void _rimuoviAtletiDallaGaraButton_Click(object sender, EventArgs e)
         {
-
+            if (_guidAtletaSelezionata != null)
+            {
+                Gara.GetInstance().RemoveAtletaToGara(Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata));
+            }
         }
 
         private void RefreshCheckBoxList(object sender, EventArgs e)

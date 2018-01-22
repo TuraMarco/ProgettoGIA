@@ -77,6 +77,7 @@
       <DependentUpon>AtletiUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenter\GaraDataGridViewPresenter.cs" />
+    <Compile Include="Presenter\GaraTreeViewPresenter.cs" />
     <Compile Include="Presenter\GaraUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

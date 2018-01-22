@@ -19,7 +19,7 @@ namespace ProgettoGIA.Model
         private Cartellino _cartellino;
         private int _penalità;
         private float _punteggio;
-        private bool _PrestazioneCompletata;
+        private bool _prestazioneCompletata;
 
         //property
         public Disciplina Disciplina => _disciplina;
@@ -35,7 +35,7 @@ namespace ProgettoGIA.Model
         public Cartellino Cartellino { get => _cartellino; set => _cartellino = value; }
         public int Penalità { get => _penalità; set => _penalità = value; }
         public float Punteggio { get => _punteggio; set => _punteggio = value; }
-        public bool IsCompletata { get => _PrestazioneCompletata; set => _PrestazioneCompletata = value; }
+        public bool IsCompletata { get => _prestazioneCompletata; set => _prestazioneCompletata = value; }
 
         //costruttore
         public Prestazione(Disciplina disciplina)
