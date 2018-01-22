@@ -35,7 +35,7 @@
                 p.Punteggio = temp;
                 p.IsCompletata = true;
             }
-            else if (p.Cartellino.Equals(Cartellino.GIALLO))
+            else if (p.Cartellino.Equals((float)Cartellino.GIALLO))
             {
                 float temp = (p.Misurazione * _COEFFICENTE) + _BONUS;
 
@@ -61,7 +61,7 @@
                 temp = temp + p.ValutazioneTecnica_acquaticità + p.ValutazioneTecnica_assetto + p.ValutazioneTecnica_avanzamento + p.ValutazioneTecnica_virata;
 
                 //Penalità percentuali
-                temp = temp * (1 - (p.Penalità/100)));
+                temp = temp * (1 - (p.Penalità/100));
 
                 p.Punteggio = temp;
                 p.IsCompletata = true;
