@@ -172,6 +172,10 @@ namespace ProgettoGIA.Presenter
             _clearButton_Click(this, new EventArgs());
 
             int rowIndex = e.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
             DataGridViewRow row = _garaDataGridView.Rows[rowIndex];
 
             _selectedAtletaGuid = (Guid)row.Cells[0].Value;

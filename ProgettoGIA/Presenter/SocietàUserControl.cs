@@ -87,6 +87,10 @@ namespace ProgettoGIA.Presenter
             if (_societàGridView.SelectedRows.Count > 0)
             {
                 int rowIndex = e.RowIndex;
+
+                if (rowIndex < 0)
+                    return;
+
                 DataGridViewRow row = _societàGridView.Rows[rowIndex];
                
 

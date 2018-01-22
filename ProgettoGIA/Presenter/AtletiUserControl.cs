@@ -179,6 +179,12 @@ namespace ProgettoGIA.Presenter
             if (_atletiGridView.SelectedRows.Count > 0)
             {
                 int rowIndex = e.RowIndex;
+
+                if(rowIndex < 0)
+                {
+                    return;
+                }
+
                 DataGridViewRow row = _atletiGridView.Rows[rowIndex];
 
                 _guidAtletaSelezionata = (Guid)row.Cells[0].Value;
