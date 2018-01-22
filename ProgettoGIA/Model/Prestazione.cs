@@ -1,5 +1,6 @@
 ﻿using ProgettoGIA.Model.Calcolatori;
 using System;
+using System.Windows.Forms;
 
 namespace ProgettoGIA.Model
 {
@@ -45,15 +46,8 @@ namespace ProgettoGIA.Model
 
         public void CalcolaPunteggio()
         {
-            if (this.IsCompletata)
-            {
-                ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
-                c.CalcolaPunteggio(this);
-            }
-            else
-            {
-                throw new InvalidOperationException("Errore: La prestazione non è stata ancora completata, non potrà essere calcolato il punteggio.\n");
-            }
+            ICalcolatore c = CalcolatoreFactory.GetCalcolatore(_disciplina);
+            c.CalcolaPunteggio(this);
         }
     }
 }

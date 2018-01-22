@@ -10,9 +10,6 @@ namespace ProgettoGIA.Presenter
         //campi
         private readonly TreeView _garaTreeView;
 
-        //evento
-        public static event EventHandler SpecialitàGaraCorrenteChanged;
-
         //property
         public TreeView GaraTreeView => _garaTreeView;
 
@@ -25,7 +22,6 @@ namespace ProgettoGIA.Presenter
             }
 
             _garaTreeView = garaTreeView;
-            _garaTreeView.AfterSelect += GaraTreeView_AfterSelect;
             Gara.GetInstance().Changed += Gara_changed;
 
             RefreshTreeView();
@@ -39,10 +35,6 @@ namespace ProgettoGIA.Presenter
             }
         }
 
-        private void GaraTreeView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            OnSpecialitàGaraCorrenteChanged();
-        }   
 
         private void Gara_changed(object sender, EventArgs e)
         {
@@ -59,8 +51,8 @@ namespace ProgettoGIA.Presenter
             TreeNode rootFemmina = new TreeNode(Sesso.FEMMINA.ToString());
             rootFemmina.Tag = Sesso.FEMMINA;
 
-            _garaTreeView.Nodes.Add(rootMaschio);
-            _garaTreeView.Nodes.Add(rootFemmina);
+            GaraTreeView.Nodes.Add(rootMaschio);
+            GaraTreeView.Nodes.Add(rootFemmina);
 
 
             foreach (SpecialitàGara sg in specialitàGaraList)
@@ -73,14 +65,5 @@ namespace ProgettoGIA.Presenter
                 rootFemmina.Nodes.Add(_treeNodeFemmina);
             }
         }
-
-        private void OnSpecialitàGaraCorrenteChanged()
-        {
-            Console.Write("SpecialitàGaraCorrenteChanged!!!\n");
-            if (SpecialitàGaraCorrenteChanged != null)
-            {
-                SpecialitàGaraCorrenteChanged(this, EventArgs.Empty);
-            }
-        }   
     }
 }

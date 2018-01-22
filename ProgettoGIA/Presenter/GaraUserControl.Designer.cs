@@ -45,13 +45,15 @@
             this._societàTextBox = new System.Windows.Forms.TextBox();
             this._cfTextBox = new System.Windows.Forms.TextBox();
             this._cognomeTextBox = new System.Windows.Forms.TextBox();
-            this.nomeTextBox = new System.Windows.Forms.TextBox();
+            this._nomeTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this._gialloRadioButton = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
-            this._penalitàTextBox = new System.Windows.Forms.TextBox();
+            this._penalitàUpDown = new System.Windows.Forms.NumericUpDown();
+            this._misurazioneUpDown = new System.Windows.Forms.NumericUpDown();
+            this._clearButton = new System.Windows.Forms.Button();
+            this._punteggioTextBox = new System.Windows.Forms.TextBox();
+            this._calcolaPunteggioButton = new System.Windows.Forms.Button();
+            this._gialloRadioButton = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this._rossoRadioButton = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this._assettoUpDown = new System.Windows.Forms.NumericUpDown();
             this._misurazioneLabel = new System.Windows.Forms.Label();
-            this._clearButton = new System.Windows.Forms.Button();
-            this._misurazioneUpDown = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._garaDataGridView)).BeginInit();
@@ -84,11 +84,12 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._penalitàUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._misurazioneUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._acquaticitàUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._avanzamentoUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._virataUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._assettoUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._misurazioneUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -157,12 +158,17 @@
             // 
             // _garaDataGridView
             // 
+            this._garaDataGridView.AllowUserToAddRows = false;
+            this._garaDataGridView.AllowUserToDeleteRows = false;
             this._garaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._garaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._garaDataGridView.Location = new System.Drawing.Point(3, 249);
             this._garaDataGridView.Name = "_garaDataGridView";
+            this._garaDataGridView.ReadOnly = true;
+            this._garaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._garaDataGridView.Size = new System.Drawing.Size(259, 342);
             this._garaDataGridView.TabIndex = 3;
+            this._garaDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._garaDataGridView_CellClick);
             // 
             // tableLayoutPanel3
             // 
@@ -237,7 +243,7 @@
             this.panel2.Controls.Add(this._societàTextBox);
             this.panel2.Controls.Add(this._cfTextBox);
             this.panel2.Controls.Add(this._cognomeTextBox);
-            this.panel2.Controls.Add(this.nomeTextBox);
+            this.panel2.Controls.Add(this._nomeTextBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(168, 3);
             this.panel2.Name = "panel2";
@@ -284,25 +290,25 @@
             this._cognomeTextBox.TabIndex = 1;
             this._cognomeTextBox.Text = "COGNOME";
             // 
-            // nomeTextBox
+            // _nomeTextBox
             // 
-            this.nomeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.nomeTextBox.Enabled = false;
-            this.nomeTextBox.Location = new System.Drawing.Point(49, 23);
-            this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(123, 20);
-            this.nomeTextBox.TabIndex = 0;
-            this.nomeTextBox.Text = "NOME";
+            this._nomeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this._nomeTextBox.Enabled = false;
+            this._nomeTextBox.Location = new System.Drawing.Point(49, 23);
+            this._nomeTextBox.Name = "_nomeTextBox";
+            this._nomeTextBox.Size = new System.Drawing.Size(123, 20);
+            this._nomeTextBox.TabIndex = 0;
+            this._nomeTextBox.Text = "NOME";
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this._penalitàUpDown);
             this.panel3.Controls.Add(this._misurazioneUpDown);
             this.panel3.Controls.Add(this._clearButton);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this._punteggioTextBox);
+            this.panel3.Controls.Add(this._calcolaPunteggioButton);
             this.panel3.Controls.Add(this._gialloRadioButton);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this._penalitàTextBox);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this._rossoRadioButton);
             this.panel3.Controls.Add(this.label12);
@@ -331,23 +337,58 @@
             this.panel3.Size = new System.Drawing.Size(517, 421);
             this.panel3.TabIndex = 1;
             // 
-            // textBox1
+            // label14
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(169, 366);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 35);
-            this.textBox1.TabIndex = 31;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(276, 301);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 13);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "---- Penalità (%) ---->";
             // 
-            // button1
+            // _penalitàUpDown
             // 
-            this.button1.Location = new System.Drawing.Point(42, 366);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 35);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Calcola Punteggio";
-            this.button1.UseVisualStyleBackColor = true;
+            this._penalitàUpDown.Enabled = false;
+            this._penalitàUpDown.Location = new System.Drawing.Point(380, 299);
+            this._penalitàUpDown.Name = "_penalitàUpDown";
+            this._penalitàUpDown.Size = new System.Drawing.Size(44, 20);
+            this._penalitàUpDown.TabIndex = 34;
+            // 
+            // _misurazioneUpDown
+            // 
+            this._misurazioneUpDown.Location = new System.Drawing.Point(253, 31);
+            this._misurazioneUpDown.Name = "_misurazioneUpDown";
+            this._misurazioneUpDown.Size = new System.Drawing.Size(64, 20);
+            this._misurazioneUpDown.TabIndex = 33;
+            // 
+            // _clearButton
+            // 
+            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
+            this._clearButton.Location = new System.Drawing.Point(0, 0);
+            this._clearButton.Name = "_clearButton";
+            this._clearButton.Size = new System.Drawing.Size(35, 35);
+            this._clearButton.TabIndex = 32;
+            this._clearButton.UseVisualStyleBackColor = true;
+            this._clearButton.Click += new System.EventHandler(this._clearButton_Click);
+            // 
+            // _punteggioTextBox
+            // 
+            this._punteggioTextBox.Enabled = false;
+            this._punteggioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._punteggioTextBox.Location = new System.Drawing.Point(169, 366);
+            this._punteggioTextBox.Name = "_punteggioTextBox";
+            this._punteggioTextBox.Size = new System.Drawing.Size(120, 35);
+            this._punteggioTextBox.TabIndex = 31;
+            // 
+            // _calcolaPunteggioButton
+            // 
+            this._calcolaPunteggioButton.Location = new System.Drawing.Point(42, 366);
+            this._calcolaPunteggioButton.Name = "_calcolaPunteggioButton";
+            this._calcolaPunteggioButton.Size = new System.Drawing.Size(120, 35);
+            this._calcolaPunteggioButton.TabIndex = 30;
+            this._calcolaPunteggioButton.Text = "Calcola Punteggio";
+            this._calcolaPunteggioButton.UseVisualStyleBackColor = true;
+            this._calcolaPunteggioButton.Click += new System.EventHandler(this._calcolaPunteggioButton_Click);
             // 
             // _gialloRadioButton
             // 
@@ -358,24 +399,6 @@
             this._gialloRadioButton.TabIndex = 29;
             this._gialloRadioButton.UseVisualStyleBackColor = true;
             this._gialloRadioButton.CheckedChanged += new System.EventHandler(this._gialloRadioButton_CheckedChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(301, 302);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(15, 13);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "%";
-            // 
-            // _penalitàTextBox
-            // 
-            this._penalitàTextBox.Enabled = false;
-            this._penalitàTextBox.Location = new System.Drawing.Point(274, 298);
-            this._penalitàTextBox.MaxLength = 3;
-            this._penalitàTextBox.Name = "_penalitàTextBox";
-            this._penalitàTextBox.Size = new System.Drawing.Size(43, 20);
-            this._penalitàTextBox.TabIndex = 27;
             // 
             // label13
             // 
@@ -501,41 +524,21 @@
             0,
             0,
             0});
-            this._acquaticitàUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this._acquaticitàUpDown.Name = "_acquaticitàUpDown";
             this._acquaticitàUpDown.Size = new System.Drawing.Size(33, 20);
             this._acquaticitàUpDown.TabIndex = 13;
-            this._acquaticitàUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // _avanzamentoUpDown
             // 
-            this._avanzamentoUpDown.Location = new System.Drawing.Point(253, 124);
+            this._avanzamentoUpDown.Location = new System.Drawing.Point(253, 126);
             this._avanzamentoUpDown.Maximum = new decimal(new int[] {
             5,
-            0,
-            0,
-            0});
-            this._avanzamentoUpDown.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});
             this._avanzamentoUpDown.Name = "_avanzamentoUpDown";
             this._avanzamentoUpDown.Size = new System.Drawing.Size(33, 20);
             this._avanzamentoUpDown.TabIndex = 12;
-            this._avanzamentoUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // _virataUpDown
             // 
@@ -545,19 +548,9 @@
             0,
             0,
             0});
-            this._virataUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this._virataUpDown.Name = "_virataUpDown";
             this._virataUpDown.Size = new System.Drawing.Size(33, 20);
             this._virataUpDown.TabIndex = 11;
-            this._virataUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // _mutaCheckBox
             // 
@@ -613,19 +606,9 @@
             0,
             0,
             0});
-            this._assettoUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this._assettoUpDown.Name = "_assettoUpDown";
             this._assettoUpDown.Size = new System.Drawing.Size(33, 20);
             this._assettoUpDown.TabIndex = 2;
-            this._assettoUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // _misurazioneLabel
             // 
@@ -635,23 +618,6 @@
             this._misurazioneLabel.TabIndex = 1;
             this._misurazioneLabel.Text = "MISURAZIONE (um)";
             this._misurazioneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _clearButton
-            // 
-            this._clearButton.Image = global::ProgettoGIA.Properties.Resources.ClearWindowContent_16x;
-            this._clearButton.Location = new System.Drawing.Point(0, 0);
-            this._clearButton.Name = "_clearButton";
-            this._clearButton.Size = new System.Drawing.Size(35, 35);
-            this._clearButton.TabIndex = 32;
-            this._clearButton.UseVisualStyleBackColor = true;
-            this._clearButton.Click += new System.EventHandler(this._clearButton_Click);
-            // 
-            // _misurazioneUpDown
-            // 
-            this._misurazioneUpDown.Location = new System.Drawing.Point(253, 31);
-            this._misurazioneUpDown.Name = "_misurazioneUpDown";
-            this._misurazioneUpDown.Size = new System.Drawing.Size(64, 20);
-            this._misurazioneUpDown.TabIndex = 33;
             // 
             // GaraUserControl
             // 
@@ -671,11 +637,12 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._penalitàUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._misurazioneUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._acquaticitàUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._avanzamentoUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._virataUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._assettoUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._misurazioneUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -696,7 +663,7 @@
         private System.Windows.Forms.Button _addSpecialitàButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox _cognomeTextBox;
-        private System.Windows.Forms.TextBox nomeTextBox;
+        private System.Windows.Forms.TextBox _nomeTextBox;
         private System.Windows.Forms.TextBox _societàTextBox;
         private System.Windows.Forms.TextBox _cfTextBox;
         private System.Windows.Forms.TextBox _dataNascitaTextBox;
@@ -712,8 +679,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown _assettoUpDown;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox _penalitàTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton _rossoRadioButton;
         private System.Windows.Forms.Label label12;
@@ -726,9 +691,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox _mascheraCheckBox;
         private System.Windows.Forms.RadioButton _gialloRadioButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox _punteggioTextBox;
+        private System.Windows.Forms.Button _calcolaPunteggioButton;
         private System.Windows.Forms.Button _clearButton;
         private System.Windows.Forms.NumericUpDown _misurazioneUpDown;
+        private System.Windows.Forms.NumericUpDown _penalitàUpDown;
+        private System.Windows.Forms.Label label14;
     }
 }

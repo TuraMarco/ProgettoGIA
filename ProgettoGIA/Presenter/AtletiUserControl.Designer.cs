@@ -98,6 +98,7 @@
             this._atletiGridView.Location = new System.Drawing.Point(3, 3);
             this._atletiGridView.Name = "_atletiGridView";
             this._atletiGridView.ReadOnly = true;
+            this._atletiGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._atletiGridView.Size = new System.Drawing.Size(300, 594);
             this._atletiGridView.TabIndex = 1;
             this._atletiGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._atletiGridView_CellClick);

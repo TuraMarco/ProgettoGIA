@@ -61,7 +61,7 @@
                 temp = temp + p.ValutazioneTecnica_acquaticità + p.ValutazioneTecnica_assetto + p.ValutazioneTecnica_avanzamento + p.ValutazioneTecnica_virata;
 
                 //Penalità percentuali
-                temp = temp - (temp * (1 + p.Penalità));
+                temp = temp * (1 - (p.Penalità/100)));
 
                 p.Punteggio = temp;
                 p.IsCompletata = true;

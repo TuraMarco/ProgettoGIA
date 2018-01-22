@@ -13,6 +13,8 @@ namespace ProgettoGIA.Model
 
         //property
         public Disciplina Disciplina => _disciplina;
+        public Dictionary<Atleta, Prestazione> PrestazioneMaschile => _prestazioneMaschile;
+        public Dictionary<Atleta, Prestazione> PrestazioneFemminile => _prestazioneFemminile;
 
         //costruttore
         public SpecialitàGara(Disciplina disciplina)
@@ -30,11 +32,11 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile.Add(atleta, new Prestazione(_disciplina));
+                    PrestazioneMaschile.Add(atleta, new Prestazione(_disciplina));
                 }
                 else
                 {
-                    _prestazioneFemminile.Add(atleta, new Prestazione(_disciplina));
+                    PrestazioneFemminile.Add(atleta, new Prestazione(_disciplina));
                 }
             }
         }
@@ -45,11 +47,11 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile.Remove(atleta);
+                    PrestazioneMaschile.Remove(atleta);
                 }
                 else
                 {
-                    _prestazioneFemminile.Remove(atleta);
+                    PrestazioneFemminile.Remove(atleta);
                 }
             }
         }
@@ -61,11 +63,11 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    _prestazioneMaschile[atleta] = prestazione;
+                    PrestazioneMaschile[atleta] = prestazione;
                 }
                 else
                 {
-                    _prestazioneFemminile[atleta] = prestazione;
+                    PrestazioneFemminile[atleta] = prestazione;
                 }
             }
             else
@@ -80,7 +82,7 @@ namespace ProgettoGIA.Model
             {
                 if (atleta.Sesso.Equals(Sesso.MASCHIO))
                 {
-                    foreach (KeyValuePair<Atleta, Prestazione> pm in _prestazioneMaschile)
+                    foreach (KeyValuePair<Atleta, Prestazione> pm in PrestazioneMaschile)
                     {
                         if (pm.Key.Guid.Equals(atleta.Guid))
                         {
@@ -90,7 +92,7 @@ namespace ProgettoGIA.Model
                 }
                 else
                 {
-                    foreach (KeyValuePair<Atleta, Prestazione> pf in _prestazioneFemminile)
+                    foreach (KeyValuePair<Atleta, Prestazione> pf in PrestazioneFemminile)
                     {
                         if (pf.Key.Guid.Equals(atleta.Guid))
                         {
@@ -106,7 +108,7 @@ namespace ProgettoGIA.Model
 
         public List<Atleta> GetAllAtleti()
         {
-            return new List<Atleta>(_prestazioneMaschile.Keys.Concat(_prestazioneFemminile.Keys));
+            return new List<Atleta>(PrestazioneMaschile.Keys.Concat(PrestazioneFemminile.Keys));
         }
 
         #endregion
@@ -117,7 +119,7 @@ namespace ProgettoGIA.Model
 
             if (atleta.Sesso.Equals(Sesso.MASCHIO))
             {
-                foreach (Atleta a in _prestazioneMaschile.Keys)
+                foreach (Atleta a in PrestazioneMaschile.Keys)
                 {
                     if (a.Guid.Equals(atleta.Guid))
                     {
@@ -127,7 +129,7 @@ namespace ProgettoGIA.Model
             }
             else
             {
-                foreach (Atleta a in _prestazioneFemminile.Keys)
+                foreach (Atleta a in PrestazioneFemminile.Keys)
                 {
                     if (a.Guid.Equals(atleta.Guid))
                     {

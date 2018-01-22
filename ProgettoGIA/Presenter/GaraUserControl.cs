@@ -16,6 +16,10 @@ namespace ProgettoGIA.Presenter
         private GaraTreeViewPresenter _garaTreeViewPresenter;
         private GaraDataGridViewPresenter _garaDataGridViewPresenter;
 
+        private Guid _selectedAtletaGuid;
+        private SpecialitàGara _selectedSpecialitàGara;
+        private Sesso _selectedSesso;
+
         public GaraUserControl()
         {
             InitializeComponent();
@@ -37,7 +41,7 @@ namespace ProgettoGIA.Presenter
             _specialitàComboBox.Items.Add(Disciplina.CAM);
 
             _garaTreeViewPresenter = new GaraTreeViewPresenter(_garaTreeView);
-            _garaDataGridViewPresenter = new GaraDataGridViewPresenter(_garaDataGridView);
+            _garaDataGridViewPresenter = new GaraDataGridViewPresenter(_garaDataGridView, _garaTreeView);
         }
 
         private void _addSpecialitàButton_Click(object sender, EventArgs e)
@@ -68,7 +72,7 @@ namespace ProgettoGIA.Presenter
 
         private void _biancoRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            _penalitàTextBox.Enabled = false;
+            _penalitàUpDown.Enabled = false;
 
             _misurazioneUpDown.Enabled = true;
             _assettoUpDown.Enabled = true;
@@ -83,7 +87,7 @@ namespace ProgettoGIA.Presenter
 
         private void _gialloRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            _penalitàTextBox.Enabled = true;
+            _penalitàUpDown.Enabled = true;
 
             _misurazioneUpDown.Enabled = true;
             _assettoUpDown.Enabled = true;
@@ -107,7 +111,7 @@ namespace ProgettoGIA.Presenter
             _mascheraCheckBox.Enabled = false;
             _tappanasoCheckBox.Enabled = false;
             _zavorraCheckBox.Enabled = false;
-            _penalitàTextBox.Enabled = false;
+            _penalitàUpDown.Enabled = false;
         }
 
         private void _clearButton_Click(object sender, EventArgs e)
@@ -122,7 +126,8 @@ namespace ProgettoGIA.Presenter
             _tappanasoCheckBox.Checked = false;
             _zavorraCheckBox.Checked = false;
             _biancoRadioButton.Checked = true;
-            _penalitàTextBox.Clear();
+            _penalitàUpDown.Value = 0;
+            _punteggioTextBox.Clear();
         }
 
         private void _specialitàComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,6 +154,8 @@ namespace ProgettoGIA.Presenter
             }
 
             Disciplina disciplinaSelected = ((Disciplina)e.Node.Tag);
+            _selectedSpecialitàGara = Gara.GetInstance().GetSpecialitàGaraForDisciplina(disciplinaSelected);
+            _selectedSesso = (Sesso)e.Node.Parent.Tag;
 
             if (disciplinaSelected.Equals(Disciplina.STA))
             {
@@ -157,6 +164,168 @@ namespace ProgettoGIA.Presenter
             else
             {
                 _misurazioneLabel.Text = "MISURAZIONE (metri)";
+            }
+        }
+
+        private void _garaDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _clearButton_Click(this, new EventArgs());
+
+            int rowIndex = e.RowIndex;
+            DataGridViewRow row = _garaDataGridView.Rows[rowIndex];
+
+            _selectedAtletaGuid = (Guid)row.Cells[0].Value;
+
+            AggiornaPrestazione();
+
+            _nomeTextBox.Text = row.Cells[1].Value.ToString();
+            _cognomeTextBox.Text = row.Cells[2].Value.ToString();
+            _dataNascitaTextBox.Text = ((DateTime)row.Cells[5].Value).ToShortDateString();
+            _cfTextBox.Text = row.Cells[3].Value.ToString();
+            _societàTextBox.Text = row.Cells[7].Value.ToString();
+
+            Atleta a = Gara.GetInstance().GetAtletaForID(_selectedAtletaGuid);
+        }
+
+        private void _calcolaPunteggioButton_Click(object sender, EventArgs e)
+        {
+            Atleta a = Gara.GetInstance().GetAtletaForID(_selectedAtletaGuid);
+
+            if (_selectedSesso.Equals(Sesso.MASCHIO))
+            {
+                Prestazione p = _selectedSpecialitàGara.PrestazioneMaschile[a];
+
+                p.Misurazione = (float)_misurazioneUpDown.Value;
+                p.ValutazioneTecnica_assetto = (int)_assettoUpDown.Value;
+                p.ValutazioneTecnica_virata = (int)_virataUpDown.Value;
+                p.ValutazioneTecnica_avanzamento = (int)_avanzamentoUpDown.Value;
+                p.ValutazioneTecnica_acquaticità = (int)_acquaticitàUpDown.Value;
+                p.Atrezzatura_muta = _mutaCheckBox.Checked;
+                p.Atrezzatura_maschera = _mascheraCheckBox.Checked;
+                p.Atrezzatura_tappanaso = _tappanasoCheckBox.Checked;
+                p.Atrezzatura_zavorra = _zavorraCheckBox.Checked;
+
+                if (_biancoRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.BIANCHO;
+                }
+                else if (_gialloRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.GIALLO;
+                    p.Penalità = (int)_penalitàUpDown.Value;
+                }
+                else if (_rossoRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.ROSSO;
+                }
+
+                p.CalcolaPunteggio();
+                _punteggioTextBox.Text = p.Punteggio.ToString();
+            }
+            else
+            {
+                Prestazione p = _selectedSpecialitàGara.PrestazioneFemminile[a];
+
+                p.Misurazione = (float)_misurazioneUpDown.Value;
+                p.ValutazioneTecnica_assetto = (int)_assettoUpDown.Value;
+                p.ValutazioneTecnica_virata = (int)_virataUpDown.Value;
+                p.ValutazioneTecnica_avanzamento = (int)_avanzamentoUpDown.Value;
+                p.ValutazioneTecnica_acquaticità = (int)_acquaticitàUpDown.Value;
+                p.Atrezzatura_muta = _mutaCheckBox.Checked;
+                p.Atrezzatura_maschera = _mascheraCheckBox.Checked;
+                p.Atrezzatura_tappanaso = _tappanasoCheckBox.Checked;
+                p.Atrezzatura_zavorra = _zavorraCheckBox.Checked;
+
+                if (_biancoRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.BIANCHO;
+                }
+                else if (_gialloRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.GIALLO;
+                    p.Penalità = (int)_penalitàUpDown.Value;
+                }
+                else if (_rossoRadioButton.Checked)
+                {
+                    p.Cartellino = Cartellino.ROSSO;
+                }
+
+                p.CalcolaPunteggio();
+                _punteggioTextBox.Text = p.Punteggio.ToString();
+            }
+        }
+
+        private void AggiornaPrestazione()
+        {
+            Atleta a = Gara.GetInstance().GetAtletaForID(_selectedAtletaGuid);
+
+            if (_selectedSesso.Equals(Sesso.MASCHIO))
+            {
+                Prestazione p = _selectedSpecialitàGara.PrestazioneMaschile[a];
+
+                if (p.IsCompletata)
+                {
+                    _misurazioneUpDown.Value = (Decimal)p.Misurazione;
+                    _assettoUpDown.Value = p.ValutazioneTecnica_assetto;
+                    _virataUpDown.Value = p.ValutazioneTecnica_virata;
+                    _avanzamentoUpDown.Value = p.ValutazioneTecnica_avanzamento;
+                    _acquaticitàUpDown.Value = p.ValutazioneTecnica_acquaticità;
+
+                    _mutaCheckBox.Checked = p.Atrezzatura_muta;
+                    _mascheraCheckBox.Checked = p.Atrezzatura_maschera;
+                    _tappanasoCheckBox.Checked = p.Atrezzatura_tappanaso;
+                    _zavorraCheckBox.Checked = p.Atrezzatura_zavorra;
+
+                    if (p.Cartellino.Equals(Cartellino.BIANCHO))
+                    {
+                        _biancoRadioButton.Checked = true;
+                    }
+                    else if (p.Cartellino.Equals(Cartellino.GIALLO))
+                    {
+                        _gialloRadioButton.Checked = true;
+                        _penalitàUpDown.Value = p.Penalità;
+                    }
+                    else if (p.Cartellino.Equals(Cartellino.ROSSO))
+                    {
+                        _rossoRadioButton.Checked = true;
+                    }
+
+                    _punteggioTextBox.Text = p.Punteggio.ToString();
+                }    
+            }
+            else
+            {
+                Prestazione p = _selectedSpecialitàGara.PrestazioneFemminile[a];
+
+                if (p.IsCompletata)
+                {
+                    _misurazioneUpDown.Value = (Decimal)p.Misurazione;
+                    _assettoUpDown.Value = p.ValutazioneTecnica_assetto;
+                    _virataUpDown.Value = p.ValutazioneTecnica_virata;
+                    _avanzamentoUpDown.Value = p.ValutazioneTecnica_avanzamento;
+                    _acquaticitàUpDown.Value = p.ValutazioneTecnica_acquaticità;
+
+                    _mutaCheckBox.Checked = p.Atrezzatura_muta;
+                    _mascheraCheckBox.Checked = p.Atrezzatura_maschera;
+                    _tappanasoCheckBox.Checked = p.Atrezzatura_tappanaso;
+                    _zavorraCheckBox.Checked = p.Atrezzatura_zavorra;
+
+                    if (p.Cartellino.Equals(Cartellino.BIANCHO))
+                    {
+                        _biancoRadioButton.Checked = true;
+                    }
+                    else if (p.Cartellino.Equals(Cartellino.GIALLO))
+                    {
+                        _gialloRadioButton.Checked = true;
+                        _penalitàUpDown.Value = p.Penalità;
+                    }
+                    else if (p.Cartellino.Equals(Cartellino.ROSSO))
+                    {
+                        _rossoRadioButton.Checked = true;
+                    }
+
+                    _punteggioTextBox.Text = p.Punteggio.ToString();
+                }
             }
         }
     }
