@@ -36,7 +36,7 @@ namespace ProgettoGIA
         private static void Prog(Gara g)
         {
             string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
-            if (File.Exists(fileName))
+            if (File.Exists(fileName) && new FileInfo(fileName).Length != 0)
             {
                 g.LoadSocietàAtleti(new SocietàAtletiPersister(fileName));
             }
