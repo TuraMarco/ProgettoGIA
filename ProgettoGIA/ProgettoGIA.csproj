@@ -143,7 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClearWindowContent_16x.png" />
-    <Content Include="SocietàAtleti.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

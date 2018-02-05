@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,7 +44,9 @@ namespace ProgettoGIA.Presenter
 
         private void _esportaSocietàAtletiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _gara.SaveSocietàAtleti(new SocietàAtletiPersister(@"SocietàAtleti.xml"));
+            string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
+            File.Create(fileName).Close();
+            _gara.SaveSocietàAtleti(new SocietàAtletiPersister(fileName));
         }
     }
 }
