@@ -22,8 +22,7 @@ namespace ProgettoGIA.Persistence
         public void SaveSocietàAtleti(List<Società> s, List<Atleta> a)
         {
             SocietàAtletiSaver saver = new SocietàAtletiSaver(_fileName);
-            saver.SaveSocietà(s);
-            saver.SaveAtleti(a);
+            saver.SaveSocietàAtleti(s, a);
         }
 
         public ISocietàAtletiLoader GetLoader()
@@ -42,14 +41,62 @@ namespace ProgettoGIA.Persistence
                 _writer = XmlWriter.Create(fileName, new XmlWriterSettings() { Indent = true });
             }
 
-            internal void SaveAtleti(List<Atleta> a)
+            internal void SaveSocietàAtleti(List<Società> societàList, List<Atleta> atletiList)
             {
-                throw new NotImplementedException();
+                try
+                {
+                    _writer.WriteStartDocument();
+                    _writer.WriteStartElement("SocietàAtleti");
+                    _writer.WriteStartElement("Società");
+
+                    foreach (Società s in societàList)
+                    {
+                        SaveSocietà(s);
+                    }
+         
+                    _writer.WriteEndElement();
+                    _writer.WriteStartElement("Atleti");
+
+                    foreach (Atleta a in atletiList)
+                    {
+                        SaveAtleta(a);
+                    }
+
+                    _writer.WriteEndElement();
+                    _writer.WriteEndElement();
+                    _writer.WriteEndDocument();
+                }
+                finally
+                {
+                    if (_writer != null)
+                    {
+                        _writer.Close();
+                    }
+                }
             }
 
-            internal void SaveSocietà(List<Società> s)
+            internal void SaveAtleta(Atleta a)
             {
-                throw new NotImplementedException();
+                _writer.WriteStartElement("Atleta");
+                _writer.WriteAttributeString("idAtleta", "urn:samples", a.Guid.ToString());
+                _writer.WriteAttributeString("nomeAtleta", "urn:samples", a.Nome);
+                _writer.WriteAttributeString("cognomeAtleta", "urn:samples", a.Cognome);
+                _writer.WriteAttributeString("cfAtleta", "urn:samples", a.CodiceFiscale);
+                _writer.WriteAttributeString("dataDiNascita", "urn:samples", a.DataDiNascita.ToString());
+                _writer.WriteAttributeString("istruttore", "urn:samples", a.Istruttore.ToString());
+                _writer.WriteAttributeString("societàDiAppartenenza", "urn:samples", a.Società.Guid.ToString());
+                _writer.WriteAttributeString("sesso", "urn:samples", a.Sesso.ToString());
+                _writer.WriteAttributeString("scadenzaCertificato", "urn:samples", a.ScadenzaCertificato.ToString());
+                _writer.WriteEndElement();
+            }
+
+            internal void SaveSocietà(Società s)
+            {
+                _writer.WriteStartElement("Società");
+                _writer.WriteAttributeString("idSocietà", "urn:samples", s.Guid.ToString());
+                _writer.WriteAttributeString("nomeSocietà", "urn:samples", s.Nome);
+                _writer.WriteAttributeString("sedeSocietà", "urn:samples", s.Sede);
+                _writer.WriteEndElement();
             }
         }
 
