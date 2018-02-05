@@ -21,7 +21,7 @@ namespace ProgettoGIA.Model
             Nome = nome;
             Sede = sede;
 
-            if (Guid == Guid.Empty)
+            if (guid == Guid.Empty)
             {
                 _guid = Guid.NewGuid();
             }

@@ -90,25 +90,14 @@ namespace ProgettoGIA.Model
             sap.SaveSocietàAtleti(Società, Atleti);
         }
 
-        public void LoadSocietà(ISocietàAtletiPersisiter sap)
+        public void LoadSocietàAtleti(ISocietàAtletiPersisiter sap)
         {
             if (sap == null)
             {
-                throw new ArgumentNullException("Errore: Durante la chiamata di LoadSocietà(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
+                throw new ArgumentNullException("Errore: Durante la chiamata di LoadSocietàAtleti(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
             }
             ISocietàAtletiLoader loader = sap.GetLoader();
-            _società = loader.LoadSocietà();
-            OnChanged();
-        }
-
-        public void LoadAtleti(ISocietàAtletiPersisiter sap)
-        {
-            if (sap == null)
-            {
-                throw new ArgumentNullException("Errore: Durante la chiamata di LoadAtleti(ISocietàAtletiPersisiter sap); l'argomento ISocietàAtletiPersisiter è null\n");
-            }
-            ISocietàAtletiLoader loader = sap.GetLoader();
-            _atleti = loader.LoadAtleti();
+            loader.LoadSocietàAtleti();
             OnChanged();
         }
 

@@ -47,7 +47,7 @@ namespace ProgettoGIA.Persistence
                 {
                     _writer.WriteStartDocument();
                     _writer.WriteStartElement("SocietàAtleti");
-                    _writer.WriteStartElement("Società");
+                    _writer.WriteStartElement("SocietàList");
 
                     foreach (Società s in societàList)
                     {
@@ -55,7 +55,7 @@ namespace ProgettoGIA.Persistence
                     }
          
                     _writer.WriteEndElement();
-                    _writer.WriteStartElement("Atleti");
+                    _writer.WriteStartElement("AtletiList");
 
                     foreach (Atleta a in atletiList)
                     {
@@ -112,14 +112,37 @@ namespace ProgettoGIA.Persistence
                 _xmlDocument.Load(fileName);
             }
 
-            public List<Atleta> LoadAtleti()
+            public void LoadSocietàAtleti()
             {
-                throw new NotImplementedException();
-            }
+                Gara g = Gara.GetInstance();
 
-            public List<Società> LoadSocietà()
-            {
-                throw new NotImplementedException();
+                XmlElement societàElement = (XmlElement)_xmlDocument.SelectSingleNode("SocietàAtleti/SocietàList");
+                foreach (XmlNode societàNode in societàElement.ChildNodes)
+                {
+                    XmlAttributeCollection ac = societàNode.Attributes;
+                    g.AddSocietà(new Società(societàNode.Attributes["p3:nomeSocietà"].Value, societàNode.Attributes["p3:sedeSocietà"].Value, new Guid(societàNode.Attributes["p3:idSocietà"].Value)));
+                }
+
+                XmlElement atletiElement = (XmlElement)_xmlDocument.SelectSingleNode("SocietàAtleti/AtletiList");
+                foreach (XmlNode atletaNode in atletiElement.ChildNodes)
+                {
+                    Sesso sesso = Sesso.MASCHIO;
+                    if (atletaNode.Attributes["p3:sesso"].Value.Equals("FEMMINA"))
+                        sesso = Sesso.FEMMINA;
+
+                    g.AddAtleta(new Atleta(
+                            atletaNode.Attributes["p3:nomeAtleta"].Value,
+                            atletaNode.Attributes["p3:cognomeAtleta"].Value,
+                            atletaNode.Attributes["p3:cfAtleta"].Value,
+                            sesso,
+                            Convert.ToDateTime(atletaNode.Attributes["p3:dataDiNascita"].Value),
+                            Convert.ToBoolean(atletaNode.Attributes["p3:istruttore"].Value),
+                            g.GetSocietàForID(new Guid(atletaNode.Attributes["p3:societàDiAppartenenza"].Value)),
+                            Convert.ToDateTime(atletaNode.Attributes["p3:scadenzaCertificato"].Value),
+                            new Guid(atletaNode.Attributes["p3:idAtleta"].Value
+                        )
+                    ));
+                }
             }
         }
     }

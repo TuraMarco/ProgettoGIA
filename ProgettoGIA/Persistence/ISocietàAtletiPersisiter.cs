@@ -15,7 +15,6 @@ namespace ProgettoGIA.Persistence
 
     public interface ISocietàAtletiLoader
     {
-        List<Società> LoadSocietà();
-        List<Atleta> LoadAtleti();
+        void LoadSocietàAtleti();
     }
 }

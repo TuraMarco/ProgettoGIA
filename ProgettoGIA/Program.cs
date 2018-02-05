@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,20 +21,29 @@ namespace ProgettoGIA
         [STAThread]
         static void Main()
         {
-            /*
-            //DEBUG
-            Gara g = Gara.GetInstance();
-            Demo(g);
-            */
-
             //APPLICAZIONE
             Gara g = Gara.GetInstance();
-            Demo(g);
+
+            Prog(g);
+            //Demo(g);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
             
+        }
+
+        private static void Prog(Gara g)
+        {
+            string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
+            if (File.Exists(fileName))
+            {
+                g.LoadSocietàAtleti(new SocietàAtletiPersister(fileName));
+            }
+            else
+            {
+                File.Create(fileName).Close();
+            }
         }
 
         private static void Demo(Gara g)
