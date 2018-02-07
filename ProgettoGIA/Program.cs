@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ProgettoGIA.Model;
@@ -24,8 +21,8 @@ namespace ProgettoGIA
             //APPLICAZIONE
             Gara g = Gara.GetInstance();
 
-            Prog(g);
-            //Demo(g);
+            //App(g);
+            Demo(g);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -33,19 +30,7 @@ namespace ProgettoGIA
             
         }
 
-        private static void Prog(Gara g)
-        {
-            string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
-            if (File.Exists(fileName) && new FileInfo(fileName).Length != 0)
-            {
-                g.LoadSocietàAtleti(new SocietàAtletiPersister(fileName));
-            }
-            else
-            {
-                File.Create(fileName).Close();
-            }
-        }
-
+        #region Demo
         private static void Demo(Gara g)
         {
             Società s1 = new Società("societa1", "Bologna", Guid.Empty);
@@ -235,5 +220,21 @@ namespace ProgettoGIA
             g.printGara();
             Console.Write("\n");
         }
+        #endregion
+
+        #region Application
+        private static void App(Gara g)
+        {
+            string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
+            if (File.Exists(fileName) && new FileInfo(fileName).Length != 0)
+            {
+                g.LoadSocietàAtleti(new SocietàAtletiPersister(fileName));
+            }
+            else
+            {
+                File.Create(fileName).Close();
+            }
+        }
+        #endregion
     }
 }

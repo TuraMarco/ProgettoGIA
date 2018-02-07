@@ -18,7 +18,7 @@ namespace ProgettoGIA.Model
         public List<Atleta> Atleti => _atleti;
         public List<Società> Società => _società;
 
-        public List<Disciplina> DisciplineInGara
+        public List<Disciplina> DisciplineInGara //si usa solo per il debug
         {
             get
             {
@@ -125,7 +125,7 @@ namespace ProgettoGIA.Model
             OnChanged();
         }
 
-        public void AddPrestazioneToAtleta(Atleta atleta, Disciplina disciplina, Prestazione prestazione)
+        public void AddPrestazioneToAtleta(Atleta atleta, Disciplina disciplina, Prestazione prestazione) //si usa solo in debug
         {
             foreach (SpecialitàGara sg in _specialitàGara)
             {
@@ -313,7 +313,7 @@ namespace ProgettoGIA.Model
             return possiede;
         }
 
-        public void printAtleti()
+        public void printAtleti() //si usa in debug
         {
             foreach (Atleta a in Atleti)
             {
@@ -321,7 +321,7 @@ namespace ProgettoGIA.Model
             }
         }
 
-        public void printSocietà()
+        public void printSocietà() //si usa in debug
         {
             foreach (Società a in Società)
             {
@@ -329,7 +329,7 @@ namespace ProgettoGIA.Model
             }
         }
 
-        public void printGara()
+        public void printGara() //si usa in debug
         {
             Console.Write("\n--------------------------------\n-------------GARA---------------\n--------------------------------\n");
             foreach (SpecialitàGara sg in _specialitàGara)

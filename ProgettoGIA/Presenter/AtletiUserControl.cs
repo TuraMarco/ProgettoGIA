@@ -225,6 +225,14 @@ namespace ProgettoGIA.Presenter
         private void _aggiungiAtletiAllaGaraButton_Click(object sender, EventArgs e)
         {
             List<Disciplina> temp = new List<Disciplina>();
+            Atleta atleta = Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata);
+
+            if (atleta.ScadenzaCertificato < DateTime.Now)
+            {
+                MessageBox.Show("Si sta tentando di iscrivere un atleta con certificato medico scaduto.", "Certificato medico scaduto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
             if (_guidAtletaSelezionata != null)
             {
@@ -237,7 +245,7 @@ namespace ProgettoGIA.Presenter
                 }
             }
 
-            Gara.GetInstance().AddAtletaToGara(Gara.GetInstance().GetAtletaForID(_guidAtletaSelezionata), temp); 
+            Gara.GetInstance().AddAtletaToGara(atleta, temp); 
         }
 
         private void _rimuoviAtletiDallaGaraButton_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace ProgettoGIA.Model.Calcolatori
             return _calcolatori[d];
         }
 
-        public static IEnumerable<ICalcolatore> GetCalcolatori()
+        public static IEnumerable<ICalcolatore> GetCalcolatori() //non viene mai usata
         {
             return _calcolatori.Values;
         }
