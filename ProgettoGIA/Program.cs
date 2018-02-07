@@ -21,8 +21,8 @@ namespace ProgettoGIA
             //APPLICAZIONE
             Gara g = Gara.GetInstance();
 
-            //App(g);
-            Demo(g);
+            App(g);
+            //Demo(g);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -226,6 +226,7 @@ namespace ProgettoGIA
         private static void App(Gara g)
         {
             string fileName = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"SocietàAtleti.xml");
+
             if (File.Exists(fileName) && new FileInfo(fileName).Length != 0)
             {
                 g.LoadSocietàAtleti(new SocietàAtletiPersister(fileName));
